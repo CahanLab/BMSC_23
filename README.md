@@ -1,4 +1,4 @@
-# GENE REGULATORY NETWORKS GOVERNING MULTIPOTENCY OF ADULT MURINE BONE MARROW STROMAL CELLS
+# codes for GRN governing BMSC multipotency
 
 The following sections contain scripts to demonstrate how the results in the manuscript were generated.
 
