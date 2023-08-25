@@ -14,7 +14,8 @@ adata.var_names_make_unique()
 adata
 ```
 
-# Define filter to filter out bad quality cell/potential doublets
+# Define criteria to filter out bad quality cell/potential doublets
+```python
 def filter_10x(mdata, topX = 95, mCells=3, mGenes=200):
     sc.pp.filter_genes(mdata, min_cells=mCells)
     sc.pp.filter_cells(mdata, min_genes=mGenes)
@@ -23,7 +24,6 @@ def filter_10x(mdata, topX = 95, mCells=3, mGenes=200):
     mdata = mdata[mdata.obs['n_counts'] < thresh, :]
     return mdata
 
-# Define filter to filter out cells with high mitochondrial content
 def percent_cal(MSC): 
 	MSC= filter_10x(MSC, mCells=3)
 	mito_genes = [name for name in MSC.var_names if name.startswith('mt-')]
@@ -34,11 +34,25 @@ def percent_cal(MSC):
 	return MSC
 
 adata = percent_cal(adata)
-sc.pl.violin(adata , ['n_counts'], jitter=0.4, multi_panel=True)
-
-mdata.obs['n_counts2'] = np.sum(mdata.X, axis=1).A1
-
 sc.pl.violin(adata , ['n_genes', 'n_counts', 'percent_mito', 'percent_ribo'], jitter=0.4, multi_panel=True)
+```
+
+# Filter out bad cells
+```python
+def filter_prep(adata, ngenes, percentmito, percentribo):
+	adata= adata[adata.obs['n_genes'] < ngenes, :]
+	adata= adata[adata.obs['percent_mito'] < percentmito, :]
+	adata= adata[adata.obs['percent_ribo'] < percentribo, :]
+	sc.pp.normalize_per_cell(adata, counts_per_cell_after=1e4)
+	sc.pp.log1p(adata)
+	return (adata)
+
+adata= filter_prep(adata, 3000, 0.15, 0.2) # the numbers are defined based on the characteristics of each sample
+adata
+
+adata_raw = adata.copy()
+sc.pp.highly_variable_genes(adata, min_mean=0.0125, max_mean=3, min_disp=0.5)
+sc.pl.highly_variable_genes(adata)
 
 def variable_filter(adata):
 	adata= adata[:, adata.var['highly_variable']]
@@ -46,6 +60,12 @@ def variable_filter(adata):
 	sc.pp.scale(adata, max_value=10)
 	return(adata)
 
+adata = variable_filter(adata)
+```
+
+# Regress out cell cycle effect
+
+```python
 def cycle_score(adata, species):
 	cell_cycle_genes = [x.strip() for x in open("/Users/raycheng/Dropbox (CahanLab)/BMSC_Meta/Data/Reference/regev_lab_cell_cycle_genes.txt")] 
 	if species == "mouse":
@@ -95,23 +115,21 @@ def cycle_regress(adata):
 	sc.pp.scale(adata)
 	return(adata)
 
-
 adata = variable_filter(adata)
 adata = cycle_score(adata, "mouse")
 oricycle_plot(adata, "mouse")
 
-
 adata = cycle_regress(adata)
 oricycle_plot(adata, "mouse")
+```
 
-
+# Unsupervised clustering
+```python
 PCA
 sc.tl.pca(adata,use_highly_variable=True, n_comps=60, svd_solver='arpack')
 sc.pl.pca_variance_ratio(adata, 60, log=True)
 
-
 adata_pre = adata.copy()
-
 adata= adata_pre.copy()
 sc.pp.neighbors(adata, n_neighbors=100,n_pcs=20)
 sc.tl.louvain(adata, resolution = 0.4)
@@ -123,14 +141,10 @@ adata_all.obsm['X_pca'] = adata.obsm['X_pca']
 adata_all.obsm['X_umap'] = adata.obsm['X_umap']
 adata_all.obs['louvain'] = adata.obs['louvain']
 sc.pl.umap(adata_all, color=['louvain'])
+```
 
-
-# Identify surfacemarkers of most differentially expressed genes
-
-
-
-
-
-
-
-
+# Differentially expressed gene analysis
+```python
+sc.tl.rank_genes_groups(adata_all, 'louvain')
+pd.DataFrame(adata_all.uns['rank_genes_groups']['names']).head(25)
+```
