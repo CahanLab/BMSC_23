@@ -69,16 +69,6 @@ sc.pl.umap(adata_all, color = ['leiden5', 'type1', 'tissue'])
 sc.tl.leiden(adata_all, key_added="clusters", resolution = 0.5)
 sc.pl.umap(adata_all, color = ['clusters', 'tissue', 'study'])
 
-
-
-
-
-BMSC1 CAR
-BMSC2 OSP
-BMSC3 CH
-BMSC4 FIB
-BMSC5 SMC
-
 # Identify subclusters
 adata_marrow = adata_all[adata_all.obs['tissue'] == 'marrow']
 adata_bone = adata_all[adata_all.obs['tissue'] == 'bone']
@@ -86,8 +76,6 @@ adata_bone = adata_all[adata_all.obs['tissue'] == 'bone']
 sc.pp.neighbors(adata_marrow , use_rep="X_pca_harmony", n_neighbors=25,n_pcs=25)
 sc.tl.leiden(adata_marrow , resolution = 0.1, restrict_to=('type', ['BMSC2']), key_added='leiden1')
 sc.pl.umap(adata_marrow , color = ['leiden1'], palette = 'Set2')
-
-
 
 sc.tl.rank_genes_groups(adata_marrow, 'leiden1', n_genes=adata_marrow.shape[1], use_raw=False)
 sc.pl.rank_genes_groups_dotplot(adata_marrow, values_to_plot='logfoldchanges', min_logfoldchange=1.5, vmax=7, vmin=-7, cmap='bwr', dendrogram = False)
