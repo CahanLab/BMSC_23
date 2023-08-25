@@ -4,5 +4,6 @@ The following sections contain scripts to demonstrate how the results in the man
 
 ### Meta-analysis section
 This section is to gather published data to summarize the findings. Therefore, individual dataset were not deposit to the GEO repository. Please visit cited articles for the raw data.
+
 <br>[Clustering for individual sample (Python)](Meta-analysis/[Cluster]Individual_sample.md)<br>
 
