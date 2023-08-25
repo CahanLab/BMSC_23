@@ -5,9 +5,11 @@ import scanpy as sc
 import loompy
 
 # Import Data
+```python
 adata = sc.read("the_loom_file_of_sample_of_your_interest", cache=True)
 adata.var_names_make_unique()
 adata
+```
 
 # Define filter to filter out bad quality cell/potential doublets
 def filter_10x(mdata, topX = 95, mCells=3, mGenes=200):
