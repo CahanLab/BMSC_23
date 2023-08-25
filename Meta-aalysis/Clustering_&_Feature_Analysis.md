@@ -1,8 +1,11 @@
+# Prepare python environment
+```python
 python3
 import numpy as np
 import pandas as pd
 import scanpy as sc
 import loompy
+```
 
 # Import Data
 ```python
