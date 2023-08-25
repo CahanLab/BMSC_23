@@ -3,4 +3,4 @@
 The following sections contain scripts for generating results in the manuscript entitled "".
 
 ### Meta-analysis section
-[Clustering (Python) ](Metanalysis/Clustering_&_Feature_Analysis.md)
+[Clustering (Python) ](Meta-aalysis/Clustering_&_Feature_Analysis.md)
