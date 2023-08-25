@@ -1,4 +1,4 @@
-# Prepare python environment
+# Prepare Python environment
 ```python
 python3
 import numpy as np
