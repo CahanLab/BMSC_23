@@ -1,4 +1,4 @@
-# codes for GRN governing BMSC multipotency
+# Code book
 
 The following sections contain scripts to demonstrate how the results in the manuscript were generated.
 
