@@ -1,4 +1,4 @@
-# BMSC Multipotency Resource
+# BMSC Multipotency Single-cell Resource
 The following sections contain scripts and data to demonstrate how the results in the manuscript were generated.
 
 ## Raw Data
