@@ -1,6 +1,9 @@
 # BMSC Multipotency Resource
 The following sections contain scripts and data to demonstrate how the results in the manuscript were generated.
 
+## Raw Data
+All the raw data is deposit to the GEO database - accession number GSE234540
+
 ## Scripts and Processed Data
 ### Meta-analysis section
 This section includes scripts and data utilized to generate the results of a meta-analysis involving 20 independent samples collected from six distinct single-cell RNA sequencing studies.
@@ -12,5 +15,5 @@ We collected BMSCs at four different time points - day 0, day 1, day 3, and day 
 To bridge the discrepancy observed between the heterogenous freshly isolated BMSCs and homogenous multipotent BMSC, we collected BMSCs isolated at day 0, day 1, and day 3 to elucidate the derivation of multipotent BMSCs and identify critical regulators govern the multipotency in BMSCs.
 
 ## Environment
-The environment.txt list the detailed information of the package versions used in the analysis
+The environment.txt lists the detailed information of the package versions used in the analysis
 
