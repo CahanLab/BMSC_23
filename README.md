@@ -1,4 +1,4 @@
-# BMSC Multipotency Code book
+# BMSC Multipotency Resource
 The following sections contain scripts and data to demonstrate how the results in the manuscript were generated.
 
 ### Meta-analysis section
