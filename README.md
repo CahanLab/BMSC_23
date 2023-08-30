@@ -1,5 +1,5 @@
 # BMSC Resource
-The following sections contain scripts and data to reproduce results in the manuscript entitled "".
+The following sections contain scripts and data to reproduce results in the article "CITATION".
 
 ## Raw Data
 All the raw data is deposited to the GEO database under accession number [GSE234540](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE234540)
