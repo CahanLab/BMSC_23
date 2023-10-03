@@ -1,0 +1,998 @@
+Python Environment:
+
+anchor-bio         1.1.1
+anndata            0.8.0
+appnope            0.1.3
+asttokens          2.2.1
+atomicwrites       1.4.1
+attrs              23.1.0
+backcall           0.2.0
+bamnostic          1.1.8
+certifi            2022.12.7
+charset-normalizer 3.1.0
+CITE-seq-Count     1.4.5
+click              8.1.3
+comm               0.1.3
+contourpy          1.0.7
+coverage           7.2.3
+cycler             0.11.0
+debugpy            1.6.6
+decorator          5.1.1
+dill               0.3.7
+dunamai            1.16.0
+episcanpy          0.4.0
+exceptiongroup     1.1.1
+executing          1.2.0
+fbpca              1.0
+flake8             6.0.0
+fonttools          4.39.3
+future             0.18.3
+geosketch          1.2
+get_version        3.5.4
+gseapy             1.0.4
+h5py               3.8.0
+harmonypy          0.0.9
+idna               3.4
+igraph             0.10.4
+iniconfig          2.0.0
+intervaltree       3.1.0
+ipykernel          6.22.0
+ipython            8.12.0
+ipywidgets         8.0.6
+jedi               0.18.2
+joblib             1.2.0
+jupyter_client     8.1.0
+jupyter_core       5.3.0
+jupyterlab-widgets 3.0.7
+kiwisolver         1.4.4
+kneed              0.8.2
+legacy-api-wrap    1.2
+leidenalg          0.9.1
+Levenshtein        0.21.1
+llvmlite           0.39.1
+loompy             3.0.7
+matplotlib         3.7.1
+matplotlib-inline  0.1.6
+mccabe             0.7.0
+more-itertools     10.1.0
+multiprocess       0.70.15
+natsort            8.3.1
+nest-asyncio       1.5.6
+networkx           3.0
+numba              0.56.4
+numpy              1.23.5
+numpy-groupies     0.9.20
+packaging          23.0
+pandas             1.5.3
+parso              0.8.3
+patsy              0.5.3
+pexpect            4.8.0
+pickleshare        0.7.5
+Pillow             9.4.0
+pip                22.3.1
+platformdirs       3.2.0
+pluggy             1.0.0
+prompt-toolkit     3.0.38
+psutil             5.9.4
+ptyprocess         0.7.0
+pure-eval          0.2.2
+py                 1.11.0
+pybktree           1.1
+pycodestyle        2.10.0
+pyflakes           3.0.1
+Pygments           2.14.0
+pynndescent        0.5.8
+pyparsing          3.0.9
+pysam              0.20.0
+pytest             4.1.0
+pytest-cov         4.0.0
+pytest-dependency  0.4.0
+python-dateutil    2.8.2
+python-Levenshtein 0.21.1
+pytz               2023.3
+pyzmq              25.0.2
+rapidfuzz          3.3.0
+regex              2023.8.8
+requests           2.28.2
+scanorama          1.7.3
+scanpy             1.9.3
+scikit-learn       1.2.2
+scipy              1.10.1
+scvelo             0.2.5
+seaborn            0.12.2
+session-info       1.0.0
+setuptools         65.5.0
+setuptools-scm     7.1.0
+six                1.16.0
+sortedcontainers   2.4.0
+stack-data         0.6.2
+statsmodels        0.13.5
+stdlib-list        0.8.0
+tbb                2021.8.0
+texttable          1.6.7
+threadpoolctl      3.1.0
+tomli              2.0.1
+tornado            6.2
+tqdm               4.65.0
+traitlets          5.9.0
+typing_extensions  4.5.0
+umap-learn         0.5.3
+umi-tools          1.0.0
+urllib3            1.26.15
+wcwidth            0.2.6
+widgetsnbextension 4.0.7
+
+R Environment:
+                                  Version        Priority     
+ade4                              "1.7-22"       NA           
+afex                              "1.2-1"        NA           
+animation                         "2.7"          NA           
+AnnotationHub                     "3.6.0"        NA           
+aod                               "1.3.2"        NA           
+ape                               "5.7-1"        NA           
+aplot                             "0.1.10"       NA           
+av                                "0.8.3"        NA           
+ballgown                          "2.30.0"       NA           
+base64                            "2.0.1"        NA           
+bbmle                             "1.0.25"       NA           
+bdsmatrix                         "1.3-6"        NA           
+beachmat                          "2.14.0"       NA           
+beeswarm                          "0.4.0"        NA           
+BiocNeighbors                     "1.16.0"       NA           
+BiocSingular                      "1.14.0"       NA           
+BiocStyle                         "2.26.0"       NA           
+blme                              "1.0-5"        NA           
+bookdown                          "0.33"         NA           
+broom.mixed                       "0.2.9.4"      NA           
+Cairo                             "1.6-0"        NA           
+ChIPseeker                        "1.34.1"       NA           
+chromVAR                          "1.20.2"       NA           
+chromVARmotifs                    "0.2.0"        NA           
+circlize                          "0.4.15"       NA           
+CircStats                         "0.2-6"        NA           
+circular                          "0.4-95"       NA           
+clue                              "0.3-64"       NA           
+clusterGeneration                 "1.3.7"        NA           
+clusterProfiler                   "4.6.2"        NA           
+ComplexHeatmap                    "2.14.0"       NA           
+covr                              "3.6.1"        NA           
+DelayedMatrixStats                "1.20.0"       NA           
+deMULTIplex                       "1.0.2"        NA           
+dendextend                        "1.16.0"       NA           
+DESeq2                            "1.38.3"       NA           
+DHARMa                            "0.4.6"        NA           
+doParallel                        "1.0.17"       NA           
+DOSE                              "3.24.2"       NA           
+dotwhisker                        "0.7.4"        NA           
+downloader                        "0.4"          NA           
+dplyr                             "1.1.2"        NA           
+DT                                "0.27"         NA           
+effects                           "4.2-2"        NA           
+emmeans                           "1.8.5"        NA           
+enrichplot                        "1.18.3"       NA           
+esATAC                            "1.20.0"       NA           
+estimability                      "1.4.1"        NA           
+ExperimentHub                     "2.6.0"        NA           
+fgsea                             "1.24.0"       NA           
+furrr                             "0.3.1"        NA           
+gap                               "1.5-1"        NA           
+gap.datasets                      "0.0.5"        NA           
+gapminder                         "1.0.0"        NA           
+gee                               "4.13-25"      NA           
+geneplotter                       "1.76.0"       NA           
+GenomeInfoDb                      "1.34.9"       NA           
+GetoptLong                        "1.0.5"        NA           
+ggbeeswarm                        "0.7.1"        NA           
+ggfun                             "0.0.9"        NA           
+ggnewscale                        "0.4.8"        NA           
+ggplot2                           "3.4.2"        NA           
+ggplotify                         "0.1.0"        NA           
+ggrastr                           "1.0.1"        NA           
+ggrepel                           "0.9.3"        NA           
+ggseqlogo                         "0.1"          NA           
+ggstance                          "0.3.6"        NA           
+ggtree                            "3.6.2"        NA           
+gifski                            "1.6.6-1"      NA           
+glmmTMB                           "1.1.6"        NA           
+GlobalOptions                     "0.1.2"        NA           
+GOSemSim                          "2.24.0"       NA           
+graphite                          "1.44.0"       NA           
+gridGraphics                      "0.5-1"        NA           
+grr                               "0.9.5"        NA           
+gson                              "0.1.0"        NA           
+HDO.db                            "0.99.1"       NA           
+hunspell                          "3.0.2"        NA           
+huxtable                          "5.5.2"        NA           
+hwriter                           "1.3.2.1"      NA           
+igraph                            "1.4.2"        NA           
+interactiveDisplayBase            "1.36.0"       NA           
+IRdisplay                         "1.1"          NA           
+JASPAR2018                        "1.1.1"        NA           
+JASPAR2020                        "0.99.10"      NA           
+lmerTest                          "3.1-3"        NA           
+magick                            "2.7.4"        NA           
+margins                           "0.3.26"       NA           
+mgcv                              "1.8-42"       "recommended"
+mitools                           "2.4"          NA           
+mlmRev                            "1.0-8"        NA           
+MotifDb                           "1.40.0"       NA           
+motifStack                        "1.42.0"       NA           
+multcomp                          "1.4-23"       NA           
+MuMIn                             "1.47.5"       NA           
+muscat                            "1.12.1"       NA           
+mvabund                           "4.2.1"        NA           
+nabor                             "0.5.0"        NA           
+ndtv                              "0.13.3"       NA           
+networkD3                         "0.4"          NA           
+networkDynamic                    "0.11.3"       NA           
+networkLite                       "1.0.5"        NA           
+org.Hs.eg.db                      "3.16.0"       NA           
+org.Mm.eg.db                      "3.16.0"       NA           
+pander                            "0.6.5"        NA           
+parameters                        "0.20.2"       NA           
+pdftools                          "3.3.3"        NA           
+phangorn                          "2.11.1"       NA           
+pipeFrame                         "1.14.0"       NA           
+pixmap                            "0.4-12"       NA           
+plotrix                           "3.8-2"        NA           
+PowerGridNetworking               "0.0.0.9000"   NA           
+prediction                        "0.3.14"       NA           
+prettydoc                         "0.4.1"        NA           
+pscl                              "1.5.5"        NA           
+qgam                              "1.3.4"        NA           
+qpdf                              "1.3.2"        NA           
+quadprog                          "1.5-8"        NA           
+qvalue                            "2.30.0"       NA           
+r2glmm                            "0.1.2"        NA           
+rbibutils                         "2.2.13"       NA           
+Rbowtie2                          "2.4.2"        NA           
+Rcpp                              "1.0.10"       NA           
+RcppGSL                           "0.3.13"       NA           
+RcppHNSW                          "0.4.1"        NA           
+RcppML                            "0.3.7"        NA           
+RcppThread                        "2.1.3"        NA           
+RCurl                             "1.98-1.10"    NA           
+Rdpack                            "2.4"          NA           
+reactome.db                       "1.82.0"       NA           
+ReactomePA                        "1.42.0"       NA           
+remaCor                           "0.0.11"       NA           
+repr                              "1.1.6"        NA           
+rex                               "1.2.1"        NA           
+rhdf5                             "2.42.0"       NA           
+rhdf5filters                      "1.10.0"       NA           
+Rhdf5lib                          "1.20.0"       NA           
+RhpcBLASctl                       "0.23-42"      NA           
+rJava                             "1.0-6"        NA           
+rlang                             "1.1.0"        NA           
+rmarkdown                         "2.21"         NA           
+rsvd                              "1.0.5"        NA           
+rsvg                              "2.4.0"        NA           
+RUnit                             "0.4.32"       NA           
+sandwich                          "3.0-2"        NA           
+ScaledMatrix                      "1.6.0"        NA           
+scater                            "1.26.1"       NA           
+scatterpie                        "0.1.8"        NA           
+scMCA                             "0.2.0"        NA           
+scRNAseq                          "2.12.0"       NA           
+scuttle                           "1.8.4"        NA           
+shadowtext                        "0.1.2"        NA           
+ShortRead                         "1.56.1"       NA           
+SingleCellExperiment              "1.20.1"       NA           
+spelling                          "2.2.1"        NA           
+splitstackshape                   "1.4.8"        NA           
+statmod                           "1.5.0"        NA           
+stringdist                        "0.9.10"       NA           
+survey                            "4.1-1"        NA           
+tesseract                         "5.1.0"        NA           
+texreg                            "1.38.6"       NA           
+TH.data                           "1.1-1"        NA           
+threejs                           "0.3.3"        NA           
+tidytree                          "0.4.2"        NA           
+TMB                               "1.9.2"        NA           
+treeio                            "1.22.0"       NA           
+tricycle                          "1.6.0"        NA           
+tweedie                           "2.3.5"        NA           
+TxDb.Hsapiens.UCSC.hg19.knownGene "3.2.2"        NA           
+tximport                          "1.26.1"       NA           
+tximportData                      "1.26.0"       NA           
+universalmotif                    "1.17.0"       NA           
+utf8                              "1.2.3"        NA           
+variancePartition                 "1.28.9"       NA           
+vctrs                             "0.6.2"        NA           
+VennDiagram                       "1.7.3"        NA           
+vipor                             "0.4.5"        NA           
+visNetwork                        "2.1.2"        NA           
+webp                              "1.1.0"        NA           
+yulab.utils                       "0.0.6"        NA           
+zeallot                           "0.1.0"        NA           
+abind                             "1.4-5"        NA           
+acepack                           "1.4.1"        NA           
+AER                               "1.2-10"       NA           
+annotate                          "1.76.0"       NA           
+AnnotationDbi                     "1.60.2"       NA           
+AnnotationFilter                  "1.22.0"       NA           
+AnnotationForge                   "1.40.1"       NA           
+arm                               "1.13-1"       NA           
+askpass                           "1.1"          NA           
+assertthat                        "0.2.1"        NA           
+AUC                               "0.3.2"        NA           
+backports                         "1.4.1"        NA           
+base                              "4.2.2"        "base"       
+base64enc                         "0.1-3"        NA           
+base64url                         "1.4"          NA           
+BatchJobs                         "1.9"          NA           
+batchtools                        "0.9.16"       NA           
+BayesFactor                       "0.9.12-4.4"   NA           
+bayesplot                         "1.10.0"       NA           
+bayestestR                        "0.13.0"       NA           
+BBmisc                            "1.13"         NA           
+bench                             "1.1.2"        NA           
+betareg                           "3.1-4"        NA           
+BH                                "1.81.0-1"     NA           
+BiasedUrn                         "2.0.9"        NA           
+bife                              "0.7.2"        NA           
+bigD                              "0.2.0"        NA           
+biglm                             "0.9-2.1"      NA           
+binGroup                          "2.2-1"        NA           
+Biobase                           "2.58.0"       NA           
+BiocFileCache                     "2.6.1"        NA           
+BiocGenerics                      "0.44.0"       NA           
+BiocIO                            "1.8.0"        NA           
+BiocManager                       "1.30.20"      NA           
+BiocParallel                      "1.32.6"       NA           
+BiocVersion                       "3.16.0"       NA           
+biomaRt                           "2.54.1"       NA           
+Biostrings                        "2.66.0"       NA           
+biovizBase                        "1.46.0"       NA           
+bit                               "4.0.5"        NA           
+bit64                             "4.0.5"        NA           
+bitops                            "1.0-7"        NA           
+blavaan                           "0.4-7"        NA           
+blob                              "1.2.4"        NA           
+boot                              "1.3-28.1"     "recommended"
+brew                              "1.0-8"        NA           
+bridgesampling                    "1.1-2"        NA           
+brio                              "1.1.3"        NA           
+brms                              "2.19.0"       NA           
+Brobdingnag                       "1.2-9"        NA           
+broom                             "1.0.4"        NA           
+BSgenome                          "1.66.3"       NA           
+BSgenome.Dmelanogaster.UCSC.dm3   "1.4.0"        NA           
+BSgenome.Hsapiens.UCSC.hg19       "1.4.3"        NA           
+BSgenome.Mmusculus.UCSC.mm10      "1.4.3"        NA           
+bslib                             "0.4.2"        NA           
+btergm                            "1.10.6"       NA           
+cachem                            "1.0.7"        NA           
+callr                             "3.7.3"        NA           
+car                               "3.1-1"        NA           
+carData                           "3.0-5"        NA           
+caret                             "6.0-94"       NA           
+caTools                           "1.18.2"       NA           
+ccaPP                             "0.3.3"        NA           
+cellranger                        "1.1.0"        NA           
+censReg                           "0.5-36"       NA           
+cgam                              "1.20"         NA           
+checkmate                         "2.1.0"        NA           
+chemometrics                      "1.4.2"        NA           
+chron                             "2.3-60"       NA           
+class                             "7.3-21"       "recommended"
+classInt                          "0.4-9"        NA           
+cli                               "3.6.1"        NA           
+clipr                             "0.8.0"        NA           
+clock                             "0.6.1"        NA           
+clubSandwich                      "0.5.8"        NA           
+cluster                           "2.1.4"        "recommended"
+cmprsk                            "2.2-11"       NA           
+CNEr                              "1.34.0"       NA           
+cobs                              "1.3-5"        NA           
+coda                              "0.19-4"       NA           
+codetools                         "0.2-19"       "recommended"
+collapse                          "1.9.3"        NA           
+colorspace                        "2.1-0"        NA           
+colourpicker                      "1.2.0"        NA           
+commonmark                        "1.9.0"        NA           
+compiler                          "4.2.2"        "base"       
+CompQuadForm                      "1.4.3"        NA           
+coneproj                          "1.16"         NA           
+conflicted                        "1.2.0"        NA           
+contfrac                          "1.1-12"       NA           
+corpcor                           "1.6.10"       NA           
+correlation                       "0.8.3"        NA           
+corrplot                          "0.92"         NA           
+cowplot                           "1.1.1"        NA           
+coxme                             "2.2-18.1"     "optional"   
+cplm                              "0.7-10"       NA           
+cpp11                             "0.4.3"        NA           
+crayon                            "1.5.2"        NA           
+crch                              "1.1-1"        NA           
+credentials                       "1.3.2"        NA           
+crosstalk                         "1.2.0"        NA           
+crul                              "1.3"          NA           
+cubature                          "2.0.4.6"      NA           
+curl                              "5.0.0"        NA           
+CVXR                              "1.0-11"       NA           
+CytoTRACE                         "0.3.3"        NA           
+data.table                        "1.14.8"       NA           
+datasets                          "4.2.2"        "base"       
+datawizard                        "0.7.0"        NA           
+DBI                               "1.1.3"        NA           
+dbplyr                            "2.3.2"        NA           
+debugme                           "1.1.0"        NA           
+DelayedArray                      "0.24.0"       NA           
+deldir                            "1.0-6"        NA           
+DEoptim                           "2.2-8"        NA           
+DEoptimR                          "1.0-11"       NA           
+desc                              "1.4.2"        NA           
+DescTools                         "0.99.48"      NA           
+deSolve                           "1.35"         NA           
+devtools                          "2.4.5"        NA           
+dfidx                             "0.0-5"        NA           
+dfoptim                           "2020.10-1"    NA           
+DiagrammeR                        "1.0.9"        NA           
+dichromat                         "2.0-0.1"      NA           
+diffobj                           "0.3.5"        NA           
+diffviewer                        "0.1.1"        NA           
+digest                            "0.6.31"       NA           
+DirichletMultinomial              "1.40.0"       NA           
+distributional                    "0.3.2"        NA           
+docopt                            "0.7.1"        NA           
+doRNG                             "1.8.6"        NA           
+downlit                           "0.4.2"        NA           
+dplyr                             "1.1.1"        NA           
+dqrng                             "0.3.0"        NA           
+drc                               "3.0-1"        NA           
+dreamerr                          "1.2.3"        NA           
+dtplyr                            "1.3.1"        NA           
+dygraphs                          "1.1.1.6"      NA           
+e1071                             "1.7-13"       NA           
+ECOSolveR                         "0.5.4"        NA           
+edgeR                             "3.40.2"       NA           
+effectsize                        "0.8.3"        NA           
+egg                               "0.4.5"        NA           
+ellipsis                          "0.3.2"        NA           
+elliptic                          "1.4-0"        NA           
+EnsDb.Mmusculus.v79               "2.99.0"       NA           
+ensembldb                         "2.22.0"       NA           
+epiR                              "2.0.58"       NA           
+epoch                             "0.0.0.9000"   NA           
+ergm                              "4.4.0"        NA           
+estimatr                          "1.0.0"        NA           
+evaluate                          "0.20"         NA           
+Exact                             "3.2"          NA           
+expm                              "0.999-7"      NA           
+fansi                             "1.0.4"        NA           
+farver                            "2.1.1"        NA           
+fastGHQuad                        "1.0.1"        NA           
+fastmap                           "1.1.1"        NA           
+fastmatch                         "1.1-3"        NA           
+fauxpas                           "0.5.0"        NA           
+feisr                             "1.3.0"        NA           
+fftwtools                         "0.9-11"       NA           
+filelock                          "1.0.2"        NA           
+fit.models                        "0.64"         NA           
+fitdistrplus                      "1.1-8"        NA           
+fixest                            "0.11.1"       NA           
+flexmix                           "2.3-19"       NA           
+flextable                         "0.9.0"        NA           
+FNN                               "1.1.3.2"      NA           
+fontawesome                       "0.5.0"        NA           
+fontBitstreamVera                 "0.1.1"        NA           
+fontLiberation                    "0.1.0"        NA           
+fontquiver                        "0.2.1"        NA           
+forcats                           "1.0.0"        NA           
+foreach                           "1.5.2"        NA           
+foreign                           "0.8-84"       "recommended"
+formatR                           "1.14"         NA           
+formattable                       "0.2.1"        NA           
+Formula                           "1.2-5"        NA           
+formula.tools                     "1.7.1"        NA           
+fs                                "1.6.1"        NA           
+fungible                          "2.3"          NA           
+futile.logger                     "1.4.3"        NA           
+futile.options                    "1.0.1"        NA           
+future                            "1.32.0"       NA           
+future.apply                      "1.10.0"       NA           
+gam                               "1.22-1"       NA           
+gamlss                            "5.4-12"       NA           
+gamlss.data                       "6.0-2"        NA           
+gamlss.dist                       "6.0-5"        NA           
+gamm4                             "0.2-6"        NA           
+gargle                            "1.3.0"        NA           
+gbm                               "2.1.8.1"      NA           
+gdtools                           "0.3.2"        NA           
+geepack                           "1.3.9"        NA           
+genefilter                        "1.80.3"       NA           
+generics                          "0.1.3"        NA           
+GENIE3                            "1.20.0"       NA           
+GenomeInfoDb                      "1.34.9"       NA           
+GenomeInfoDbData                  "1.2.9"        NA           
+GenomicAlignments                 "1.34.1"       NA           
+GenomicFeatures                   "1.50.4"       NA           
+GenomicRanges                     "1.50.2"       NA           
+geoR                              "1.9-2"        NA           
+gert                              "1.9.2"        NA           
+gfonts                            "0.2.0"        NA           
+ggforce                           "0.4.1"        NA           
+ggnetwork                         "0.5.12"       NA           
+ggplot2                           "3.4.1"        NA           
+ggpointdensity                    "0.1.0"        NA           
+ggpubr                            "0.6.0"        NA           
+ggraph                            "2.1.0"        NA           
+ggrepel                           "0.9.3"        NA           
+ggridges                          "0.5.4"        NA           
+ggsci                             "3.0.0"        NA           
+ggsignif                          "0.6.4"        NA           
+gh                                "1.4.0"        NA           
+gitcreds                          "0.1.2"        NA           
+gld                               "2.6.6"        NA           
+GLMMadaptive                      "0.8-8"        NA           
+glmmML                            "1.1.4"        NA           
+glmnet                            "4.1-7"        NA           
+glmnetUtils                       "1.1.8"        NA           
+globals                           "0.16.2"       NA           
+glue                              "1.6.2"        NA           
+gmm                               "1.7"          NA           
+gmnl                              "1.1-3.2"      NA           
+gmp                               "0.7-1"        NA           
+gnm                               "1.1-2"        NA           
+GO.db                             "3.16.0"       NA           
+goftest                           "1.2-3"        NA           
+googledrive                       "2.1.0"        NA           
+googlesheets4                     "1.1.0"        NA           
+gower                             "1.0.1"        NA           
+GPArotation                       "2023.3-1"     NA           
+gplots                            "3.1.3"        NA           
+gprofiler2                        "0.2.1"        NA           
+graph                             "1.76.0"       NA           
+graphics                          "4.2.2"        "base"       
+graphlayouts                      "0.8.4"        NA           
+grDevices                         "4.2.2"        "base"       
+grid                              "4.2.2"        "base"       
+gridExtra                         "2.3"          NA           
+gsl                               "2.1-8"        NA           
+gt                                "0.8.0"        NA           
+gtable                            "0.3.3"        NA           
+gtools                            "3.9.4"        NA           
+hardhat                           "1.2.0"        NA           
+haven                             "2.5.2"        NA           
+hdf5r                             "1.3.8"        NA           
+here                              "1.0.1"        NA           
+hgu95av2.db                       "3.13.0"       NA           
+HiClimR                           "2.2.1"        NA           
+highr                             "0.10"         NA           
+Hmisc                             "5.0-1"        NA           
+hms                               "1.1.3"        NA           
+HSAUR3                            "1.0-13"       NA           
+htmlTable                         "2.4.1"        NA           
+htmltools                         "0.5.5"        NA           
+htmlwidgets                       "1.6.2"        NA           
+httpcode                          "0.3.0"        NA           
+httpuv                            "1.6.9"        NA           
+httr                              "1.4.5"        NA           
+httr2                             "0.2.2"        NA           
+hypergeo                          "1.2-13"       NA           
+ica                               "1.0-3"        NA           
+ids                               "1.0.1"        NA           
+igraph                            "1.4.1"        NA           
+influenceR                        "0.1.0.1"      NA           
+infotheo                          "1.2.0.1"      NA           
+ini                               "0.3.1"        NA           
+inline                            "0.3.19"       NA           
+insight                           "0.19.1"       NA           
+interp                            "1.1-3"        NA           
+ipred                             "0.9-14"       NA           
+IRanges                           "2.32.0"       NA           
+irlba                             "2.3.5.1"      NA           
+isoband                           "0.2.7"        NA           
+iterators                         "1.0.14"       NA           
+ivreg                             "0.6-2"        NA           
+JASPAR2022                        "0.99.7"       NA           
+JM                                "1.5-2"        NA           
+joineRML                          "0.4.6"        NA           
+jose                              "1.2.0"        NA           
+jpeg                              "0.1-10"       NA           
+jquerylib                         "0.1.4"        NA           
+jsonlite                          "1.8.4"        NA           
+jtools                            "2.2.1"        NA           
+juicyjuice                        "0.1.0"        NA           
+kableExtra                        "1.3.4"        NA           
+KEGGREST                          "1.38.0"       NA           
+Kendall                           "2.2.1"        NA           
+kernlab                           "0.9-32"       NA           
+KernSmooth                        "2.23-20"      "recommended"
+knitr                             "1.42"         NA           
+ks                                "1.14.0"       NA           
+labeling                          "0.4.2"        NA           
+Lahman                            "10.0-1"       NA           
+lambda.r                          "1.2.4"        NA           
+LaplacesDemon                     "16.1.6"       NA           
+lars                              "1.3"          NA           
+later                             "1.3.0"        NA           
+lattice                           "0.20-45"      "recommended"
+latticeExtra                      "0.6-30"       NA           
+lava                              "1.7.2.1"      NA           
+lavaan                            "0.6-15"       NA           
+lavaSearch2                       "1.5.6"        NA           
+lazyeval                          "0.2.2"        NA           
+leaps                             "3.1"          NA           
+LearnBayes                        "2.15.1"       NA           
+leiden                            "0.4.3"        NA           
+lfe                               "2.9-0"        NA           
+lifecycle                         "1.0.3"        NA           
+limma                             "3.54.2"       NA           
+listenv                           "0.9.0"        NA           
+lm.beta                           "1.7-2"        NA           
+lme4                              "1.1-32"       NA           
+lmodel2                           "1.7-3"        NA           
+lmom                              "2.9"          NA           
+lmtest                            "0.9-40"       NA           
+lobstr                            "1.1.2"        NA           
+locfit                            "1.5-9.7"      NA           
+logistf                           "1.24.1"       NA           
+logitr                            "1.0.1"        NA           
+logspline                         "2.1.19"       NA           
+loo                               "2.5.1"        NA           
+loomR                             "0.2.1.9000"   NA           
+lpSolve                           "5.6.18"       NA           
+lpSolveAPI                        "5.5.2.0-17.9" NA           
+lsmeans                           "2.30-0"       NA           
+lubridate                         "1.9.2"        NA           
+magrittr                          "2.0.3"        NA           
+mapproj                           "1.2.11"       NA           
+maps                              "3.4.1"        NA           
+maptools                          "1.1-6"        NA           
+marginaleffects                   "0.11.0"       NA           
+markdown                          "1.5"          NA           
+MASS                              "7.3-58.3"     "recommended"
+mathjaxr                          "1.6-0"        NA           
+Matrix                            "1.5-3"        "recommended"
+MatrixGenerics                    "1.10.0"       NA           
+MatrixModels                      "0.5-1"        NA           
+matrixStats                       "0.63.0"       NA           
+maxLik                            "1.5-2"        NA           
+mclogit                           "0.9.6"        NA           
+mclust                            "6.0.0"        NA           
+MCMCglmm                          "2.34"         NA           
+mediation                         "4.5.0"        NA           
+memisc                            "0.99.31.6"    NA           
+memoise                           "2.0.1"        NA           
+MEMSS                             "0.9-3"        NA           
+merDeriv                          "0.2-4"        NA           
+merTools                          "0.6.1"        NA           
+metaBMA                           "0.6.7"        NA           
+metadat                           "1.2-0"        NA           
+metafor                           "4.0-0"        NA           
+metaplus                          "1.0-4"        NA           
+methods                           "4.2.2"        "base"       
+mfx                               "1.2-2"        NA           
+mgcv                              "1.8-42"       "recommended"
+mhurdle                           "1.3-0"        NA           
+mice                              "3.15.0"       NA           
+microbenchmark                    "1.4.9"        NA           
+mime                              "0.12"         NA           
+minet                             "3.56.0"       NA           
+miniUI                            "0.1.1.1"      NA           
+minqa                             "1.2.5"        NA           
+misc3d                            "0.9-1"        NA           
+miscTools                         "0.6-26"       NA           
+mlogit                            "1.1-1"        NA           
+mmrm                              "0.2.2"        NA           
+mnormt                            "2.1.1"        NA           
+mockery                           "0.4.3"        NA           
+mockr                             "0.2.1"        NA           
+modelbased                        "0.8.6"        NA           
+modeldata                         "1.1.0"        NA           
+ModelMetrics                      "1.2.2.2"      NA           
+modelr                            "0.1.11"       NA           
+modeltests                        "0.1.4"        NA           
+modeltools                        "0.2-23"       NA           
+motifmatchr                       "1.20.0"       NA           
+msm                               "1.7"          NA           
+muhaz                             "1.2.6.4"      NA           
+multgee                           "1.8.0"        NA           
+multicool                         "0.1-12"       NA           
+munsell                           "0.5.0"        NA           
+mvtnorm                           "1.1-3"        NA           
+nanotime                          "0.3.7"        NA           
+ncdf4                             "1.21"         NA           
+network                           "1.18.1"       NA           
+nleqslv                           "3.3.4"        NA           
+nlme                              "3.1-162"      "recommended"
+nloptr                            "2.0.3"        NA           
+nnet                              "7.3-18"       "recommended"
+nnls                              "1.4"          NA           
+nonnest2                          "0.5-5"        NA           
+numDeriv                          "2016.8-1.1"   NA           
+nycflights13                      "1.0.2"        NA           
+odbc                              "1.3.4"        NA           
+officer                           "0.6.1"        NA           
+openssl                           "2.0.6"        NA           
+openxlsx                          "4.2.5.2"      NA           
+operator.tools                    "1.6.3"        NA           
+optimx                            "2022-4.30"    NA           
+orcutt                            "2.3"          NA           
+ordinal                           "2022.11-16"   NA           
+org.At.tair.db                    "3.16.0"       NA           
+org.Sc.sgd.db                     "3.16.0"       NA           
+osqp                              "0.6.0.8"      NA           
+pak                               "0.4.0"        NA           
+palmerpenguins                    "0.1.1"        NA           
+pals                              "1.7"          NA           
+Pando                             "1.0.3"        NA           
+panelr                            "0.7.7"        NA           
+parallel                          "4.2.2"        "base"       
+parallelly                        "1.35.0"       NA           
+parsedate                         "1.3.1"        NA           
+parsnip                           "1.0.4"        NA           
+partitions                        "1.10-7"       NA           
+pasillaBamSubset                  "0.36.0"       NA           
+patchwork                         "1.1.2.9000"   NA           
+pbapply                           "1.7-0"        NA           
+pbivnorm                          "0.6.0"        NA           
+pbkrtest                          "0.5.2"        NA           
+pbmcapply                         "1.5.1"        NA           
+pcaPP                             "2.0-3"        NA           
+performance                       "0.10.2"       NA           
+pheatmap                          "1.0.12"       NA           
+phylolm                           "2.6.2"        NA           
+phyr                              "1.1.0"        NA           
+pillar                            "1.9.0"        NA           
+pingr                             "2.0.2"        NA           
+pkgbuild                          "1.4.0"        NA           
+pkgconfig                         "2.0.3"        NA           
+pkgdown                           "2.0.7"        NA           
+pkgload                           "1.3.2"        NA           
+plm                               "2.6-2"        NA           
+plogr                             "0.2.0"        NA           
+plot3D                            "1.4"          NA           
+plotly                            "4.10.1"       NA           
+pls                               "2.8-1"        NA           
+plyr                              "1.8.8"        NA           
+png                               "0.1-8"        NA           
+poLCA                             "1.6.0.1"      NA           
+polspline                         "1.1.22"       NA           
+polyclip                          "1.10-4"       NA           
+polynom                           "1.4-1"        NA           
+poorman                           "0.2.6"        NA           
+posterior                         "1.4.1"        NA           
+poweRlaw                          "0.70.6"       NA           
+pracma                            "2.4.2"        NA           
+praise                            "1.0.0"        NA           
+prettyunits                       "1.1.1"        NA           
+pROC                              "1.18.0"       NA           
+processx                          "3.8.0"        NA           
+prodlim                           "2019.11.13"   NA           
+profmem                           "0.6.0"        NA           
+profvis                           "0.3.7"        NA           
+progress                          "1.2.2"        NA           
+progressr                         "0.13.0"       NA           
+promises                          "1.2.0.1"      NA           
+ProtGenerics                      "1.30.0"       NA           
+proxy                             "0.4-27"       NA           
+ps                                "1.7.3"        NA           
+psych                             "2.3.3"        NA           
+purrr                             "1.0.1"        NA           
+qlcMatrix                         "0.9.7"        NA           
+qreport                           "0.1.0"        NA           
+quantmod                          "0.4.20"       NA           
+quantreg                          "5.94"         NA           
+qvcalc                            "1.0.2"        NA           
+R.cache                           "0.16.0"       NA           
+R.methodsS3                       "1.8.2"        NA           
+R.oo                              "1.25.0"       NA           
+R.rsp                             "0.45.0"       NA           
+R.utils                           "2.12.2"       NA           
+R6                                "2.5.1"        NA           
+ragg                              "1.2.5"        NA           
+randomForest                      "4.7-1.1"      NA           
+randtoolbox                       "2.0.4"        NA           
+RANN                              "2.6.1"        NA           
+rappdirs                          "0.3.3"        NA           
+rcmdcheck                         "1.4.0"        NA           
+RColorBrewer                      "1.1-3"        NA           
+Rcpp                              "1.0.10"       NA           
+RcppAnnoy                         "0.0.20"       NA           
+RcppArmadillo                     "0.12.0.1.0"   NA           
+RcppCCTZ                          "0.2.12"       NA           
+RcppDate                          "0.0.3"        NA           
+RcppEigen                         "0.3.3.9.3"    NA           
+RcppParallel                      "5.1.7"        NA           
+RcppProgress                      "0.4.2"        NA           
+RcppRoll                          "0.3.0"        NA           
+RcppTOML                          "0.2.2"        NA           
+RcppZiggurat                      "0.1.6"        NA           
+Rcsdp                             "0.1.57.4"     NA           
+RCurl                             "1.98-1.10"    NA           
+readr                             "2.1.4"        NA           
+readxl                            "1.4.2"        NA           
+recipes                           "1.0.5"        NA           
+relimp                            "1.0-5"        NA           
+rematch                           "1.0.1"        NA           
+rematch2                          "2.1.2"        NA           
+remotes                           "2.4.2"        NA           
+renv                              "0.17.2"       NA           
+reprex                            "2.0.2"        NA           
+reshape2                          "1.4.4"        NA           
+restfulr                          "0.0.15"       NA           
+reticulate                        "1.28"         NA           
+Rfast                             "2.0.7"        NA           
+rgeos                             "0.6-2"        NA           
+Rhtslib                           "2.0.0"        NA           
+rhub                              "1.1.2"        NA           
+rio                               "0.5.29"       NA           
+rjson                             "0.2.21"       NA           
+rlang                             "1.1.0"        NA           
+rle                               "0.9.2"        NA           
+RMariaDB                          "1.2.2"        NA           
+rmarkdown                         "2.20"         NA           
+Rmpfr                             "0.9-1"        NA           
+rms                               "6.5-0"        NA           
+RMySQL                            "0.10.25"      NA           
+RNAseqData.HNRNPC.bam.chr14       "0.36.0"       NA           
+rngtools                          "1.5.2"        NA           
+rngWELL                           "0.10-9"       NA           
+robust                            "0.7-1"        NA           
+robustbase                        "0.95-0"       NA           
+robustlmm                         "3.1-2"        NA           
+ROCR                              "1.0-11"       NA           
+rootSolve                         "1.8.2.3"      NA           
+roxygen2                          "7.2.3"        NA           
+rpart                             "4.1.19"       "recommended"
+RPostgres                         "1.4.5"        NA           
+RPostgreSQL                       "0.7-5"        NA           
+rprojroot                         "2.0.3"        NA           
+rr2                               "1.1.0"        NA           
+rrcov                             "1.7-2"        NA           
+rsample                           "1.1.1"        NA           
+Rsamtools                         "2.14.0"       NA           
+RSpectra                          "0.16-1"       NA           
+RSQLite                           "2.3.0"        NA           
+rstan                             "2.21.8"       NA           
+rstanarm                          "2.21.3"       NA           
+rstantools                        "2.3.0"        NA           
+rstatix                           "0.7.2"        NA           
+rstudioapi                        "0.14"         NA           
+rtracklayer                       "1.58.0"       NA           
+Rtsne                             "0.16"         NA           
+rversions                         "2.1.2"        NA           
+rvest                             "1.0.3"        NA           
+s2                                "1.1.2"        NA           
+S4Vectors                         "0.36.2"       NA           
+sass                              "0.4.5"        NA           
+scales                            "1.2.1"        NA           
+scattermore                       "0.8"          NA           
+scatterplot3d                     "0.3-43"       NA           
+scoringRules                      "1.0.2"        NA           
+scs                               "3.0-1"        NA           
+sctransform                       "0.3.5"        NA           
+see                               "0.7.5"        NA           
+selectr                           "0.4-2"        NA           
+semEff                            "0.6.1"        NA           
+sendmailR                         "1.4-0"        NA           
+seqLogo                           "1.64.0"       NA           
+sessioninfo                       "1.2.2"        NA           
+sets                              "1.0-24"       NA           
+Seurat                            "4.3.0"        NA           
+SeuratDisk                        "0.0.0.9020"   NA           
+SeuratObject                      "4.1.3"        NA           
+sf                                "1.0-12"       NA           
+shape                             "1.4.6"        NA           
+shiny                             "1.7.4"        NA           
+shinyjs                           "2.1.0"        NA           
+shinystan                         "2.6.0"        NA           
+shinythemes                       "1.2.0"        NA           
+Signac                            "1.9.0"        NA           
+singleCellNet                     "0.1.0"        NA           
+sitmo                             "2.0.2"        NA           
+slam                              "0.1-50"       NA           
+slider                            "0.3.0"        NA           
+sm                                "2.2-5.7.1"    NA           
+sna                               "2.7-1"        NA           
+snow                              "0.4-4"        NA           
+sodium                            "1.2.1"        NA           
+som                               "0.3-5.1"      NA           
+sourcetools                       "0.1.7-1"      NA           
+sp                                "1.6-0"        NA           
+SparseM                           "1.81"         NA           
+sparseMatrixStats                 "1.10.0"       NA           
+sparsesvd                         "0.2-2"        NA           
+spatial                           "7.3-16"       "recommended"
+spatialreg                        "1.2-8"        NA           
+spatstat                          "3.0-3"        NA           
+spatstat.data                     "3.0-1"        NA           
+spatstat.explore                  "3.1-0"        NA           
+spatstat.geom                     "3.1-0"        NA           
+spatstat.linnet                   "3.0-6"        NA           
+spatstat.model                    "3.2-1"        NA           
+spatstat.random                   "3.1-4"        NA           
+spatstat.sparse                   "3.0-1"        NA           
+spatstat.utils                    "3.0-2"        NA           
+spData                            "2.2.2"        NA           
+spdep                             "1.2-8"        NA           
+speedglm                          "0.3-4"        NA           
+splancs                           "2.01-43"      NA           
+splines                           "4.2.2"        "base"       
+SQUAREM                           "2021.1"       NA           
+StanHeaders                       "2.21.0-7"     NA           
+statnet.common                    "4.8.0"        NA           
+stats                             "4.2.2"        "base"       
+stats4                            "4.2.2"        "base"       
+stemFinder                        "0.1.0"        NA           
+stringi                           "1.7.12"       NA           
+stringr                           "1.5.0"        NA           
+strucchange                       "1.5-3"        NA           
+SummarizedExperiment              "1.28.0"       NA           
+survival                          "3.5-5"        "recommended"
+sva                               "3.46.0"       NA           
+svDialogs                         "1.1.0"        NA           
+svglite                           "2.1.1"        NA           
+svGUI                             "1.0.1"        NA           
+sys                               "3.4.1"        NA           
+systemfit                         "1.1-30"       NA           
+systemfonts                       "1.0.4"        NA           
+tables                            "0.9.10"       NA           
+tcltk                             "4.2.2"        "base"       
+tensor                            "1.5"          NA           
+tensorA                           "0.36.2"       NA           
+testit                            "0.13"         NA           
+testthat                          "3.1.7"        NA           
+textshaping                       "0.3.6"        NA           
+TFBSTools                         "1.36.0"       NA           
+TFMPvalue                         "0.0.9"        NA           
+tibble                            "3.2.1"        NA           
+tidygraph                         "1.2.3"        NA           
+tidyr                             "1.3.0"        NA           
+tidyselect                        "1.2.0"        NA           
+tidyverse                         "2.0.0"        NA           
+timechange                        "0.2.0"        NA           
+timeDate                          "4022.108"     NA           
+tinytex                           "0.44"         NA           
+tmvnsim                           "1.0-2"        NA           
+tools                             "4.2.2"        "base"       
+triebeard                         "0.4.1"        NA           
+truncnorm                         "1.0-9"        NA           
+truncreg                          "0.2-5"        NA           
+trust                             "0.1-8"        NA           
+tseries                           "0.10-53"      NA           
+TTR                               "0.24.3"       NA           
+tweenr                            "2.0.2"        NA           
+tzdb                              "0.3.0"        NA           
+ucminf                            "1.1-4.1"      NA           
+umap                              "0.2.10.0"     NA           
+units                             "0.8-1"        NA           
+urca                              "1.3-3"        NA           
+urlchecker                        "1.0.1"        NA           
+urltools                          "1.7.3"        NA           
+usethis                           "2.1.6"        NA           
+utf8                              "1.2.3"        NA           
+utils                             "4.2.2"        "base"       
+uuid                              "1.1-0"        NA           
+uwot                              "0.1.14"       NA           
+V8                                "4.2.2"        NA           
+VariantAnnotation                 "1.44.1"       NA           
+vars                              "1.5-9"        NA           
+vctrs                             "0.6.1"        NA           
+vdiffr                            "1.0.5"        NA           
+VGAM                              "1.1-8"        NA           
+viridis                           "0.6.2"        NA           
+viridisLite                       "0.4.1"        NA           
+vroom                             "1.6.1"        NA           
+waldo                             "0.4.0"        NA           
+warp                              "0.2.0"        NA           
+webmockr                          "0.9.0"        NA           
+webshot                           "0.5.4"        NA           
+whisker                           "0.4.1"        NA           
+whoami                            "1.3.0"        NA           
+withr                             "2.5.0"        NA           
+wk                                "0.7.2"        NA           
+xfun                              "0.38"         NA           
+XML                               "3.99-0.14"    NA           
+xml2                              "1.3.3"        NA           
+xopen                             "1.0.0"        NA           
+xtable                            "1.8-4"        NA           
+xts                               "0.13.0"       NA           
+XVector                           "0.38.0"       NA           
+yaml                              "2.3.7"        NA           
+zip                               "2.2.2"        NA           
+zlibbioc                          "1.44.0"       NA           
+zoo                               "1.8-11"       NA    
