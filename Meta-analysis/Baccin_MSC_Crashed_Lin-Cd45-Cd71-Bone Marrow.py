@@ -6,6 +6,9 @@ import scanpy.api as sc
 import loompy
 
 # Import Data
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/Meta-analysis/GSM3466900_BE8CC.loom", "GSM3466900_BE8CC.loom")
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/Meta-analysis/regev_lab_cell_cycle_genes.txt", "regev_lab_cell_cycle_genes.txt")
+
 adata=  sc.read("GSM3466900_BE8CC.loom", cache=True)
 adata
 
@@ -58,7 +61,7 @@ def variable_filter(adata):
 adata = variable_filter(adata)
 
 def cycle_score(adata, species):
-	cell_cycle_genes = [x.strip() for x in open("/Users/raycheng/Dropbox (CahanLab)/BMSC_Meta/Data/Reference/regev_lab_cell_cycle_genes.txt")] 
+	cell_cycle_genes = [x.strip() for x in open("regev_lab_cell_cycle_genes.txt")] 
 	if species == "mouse":
 		cell_cycle_genes = [x.lower() for x in cell_cycle_genes]
 		cell_cycle_genes = [x.title() for x in cell_cycle_genes]
@@ -85,7 +88,7 @@ def cycle_score(adata, species):
 		print("please specify the species to be mouse or human")
 
 def oricycle_plot(adata, species):
-	cell_cycle_genes = [x.strip() for x in open("/Users/raycheng/Dropbox (CahanLab)/BMSC_Meta/Data/Reference/regev_lab_cell_cycle_genes.txt")] 
+	cell_cycle_genes = [x.strip() for x in open("regev_lab_cell_cycle_genes.txt")] 
 	if species == "mouse":
 		cell_cycle_genes = [x.lower() for x in cell_cycle_genes]
 		cell_cycle_genes = [x.title() for x in cell_cycle_genes]
@@ -133,7 +136,7 @@ sc.tl.rank_genes_groups(adata_all, 'louvain')
 pd.DataFrame(adata_all.uns['rank_genes_groups']['names']).head(25)
 
 
-# subsetting
+# subsetting, remove contaminated cells
 a= adata_all[adata_all.obs['louvain'].isin(['0', '2', '3', '4', '5'])].obs.index
 adata=  sc.read("GSM3466900_BE8CC.loom", cache=True)
 
@@ -186,7 +189,7 @@ def variable_filter(adata):
 adata = variable_filter(adata)
 
 def cycle_score(adata, species):
-	cell_cycle_genes = [x.strip() for x in open("/Users/raycheng/Dropbox (CahanLab)/BMSC_Meta/Data/Reference/regev_lab_cell_cycle_genes.txt")] 
+	cell_cycle_genes = [x.strip() for x in open("regev_lab_cell_cycle_genes.txt")] 
 	if species == "mouse":
 		cell_cycle_genes = [x.lower() for x in cell_cycle_genes]
 		cell_cycle_genes = [x.title() for x in cell_cycle_genes]
@@ -213,7 +216,7 @@ def cycle_score(adata, species):
 		print("please specify the species to be mouse or human")
 
 def oricycle_plot(adata, species):
-	cell_cycle_genes = [x.strip() for x in open("/Users/raycheng/Dropbox (CahanLab)/BMSC_Meta/Data/Reference/regev_lab_cell_cycle_genes.txt")] 
+	cell_cycle_genes = [x.strip() for x in open("regev_lab_cell_cycle_genes.txt")] 
 	if species == "mouse":
 		cell_cycle_genes = [x.lower() for x in cell_cycle_genes]
 		cell_cycle_genes = [x.title() for x in cell_cycle_genes]
