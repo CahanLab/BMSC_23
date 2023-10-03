@@ -6,6 +6,8 @@ import scanpy as sc
 import loompy
 
 # Import Data
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/Meta-analysis/Addo_ZYBAF.loom", "Addo_ZYBAF.loom")
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/Meta-analysis/regev_lab_cell_cycle_genes.txt", "regev_lab_cell_cycle_genes.txt")
 adata = scv.read("Addo_ZYBAF.loom", cache=True)
 adata
 
