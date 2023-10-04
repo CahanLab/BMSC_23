@@ -6,17 +6,15 @@ import scanpy as sc
 import episcanpy.api as epi
 
 # Import the file
-adata = sc.read_10x_mtx('/Users/raycheng/Dropbox (CahanLab)/BMSC_identity/Data/Sequencing/BMSC_MM_OS_20220909/OS_0909_ARC/outs/filtered_feature_bc_matrix', gex_only = False)
+# Please download the GSE234540_BMSC_OS data from GEO before start
+adata = sc.read_10x_mtx('filtered_feature_bc_matrix', gex_only = False)
 gex_rows = list(map(lambda x: x == 'Gene Expression', adata.var['feature_types']))
 atac_rows = list(map(lambda x: x == 'Peaks', adata.var['feature_types']))
 adata_gem = adata[:, gex_rows].copy()
 adata_atac = adata[:, atac_rows].copy()
 
-# AnnData object with n_obs × n_vars = 8452 × 253966
-
 #Make variables unique
 adata_gem.var_names_make_unique()
-# AnnData object with n_obs × n_vars = 8452 × 32285
 
 #Mito_genes and Ribo_genes filter
 sc.pp.filter_genes(adata_gem, min_cells=3)
@@ -31,11 +29,7 @@ adata_gem.obs['n_counts'] = adata_gem.X.sum(axis=1)
 
 sc.pl.violin(adata_gem, ['n_genes', 'n_counts'], jitter=0.4, multi_panel=True)
 
-
-
 sc.pl.violin(adata_gem, ['percent_mito', 'percent_ribo'], jitter=0.4, multi_panel=True)
-
-
 
 # Filter out low quality cells
 adata_gem= adata_gem[adata_gem.obs['n_counts'] < 30000, :]
@@ -52,11 +46,9 @@ adata_gem= adata_gem[:, non_ribo_genes_list]
 non_ribo_genes_list2 = [name for name in adata_gem.var_names if not name.startswith('Rpl')]
 adata_gem= adata_gem[:, non_ribo_genes_list2]
 
-
 # Normalization
 sc.pp.normalize_total(adata_gem, target_sum=1e4)
 sc.pp.log1p(adata_gem)
-
 
 # View of AnnData object with n_obs × n_vars = 5298 × 17243
 
@@ -67,15 +59,11 @@ adata_raw = adata_gem.copy()
 sc.pp.highly_variable_genes(adata_gem, min_mean=0.0125, max_mean=3, min_disp=0.5)
 sc.pl.highly_variable_genes(adata_gem)
 
-
-
 adata_gem= adata_gem[:, adata_gem.var['highly_variable']]
 
 #Find PCA features and compute embedding
 sc.tl.pca(adata_gem,use_highly_variable=True, n_comps=60, svd_solver='arpack')
 sc.pl.pca_variance_ratio(adata_gem, 60, log=True)
-
-
 
 adata_pre = adata_gem.copy()
 
@@ -88,24 +76,20 @@ adata_all.obsm = adata_gem.obsm
 adata_all.obs= adata_gem.obs
 sc.pl.umap(adata_all, color=['leiden'])
 
-
-
 #assignment
 #adata_all.obs['barcode2'] = [x.split('-')[0] for x in adata_all.obs_names.tolist()]
 #adata_all.obs.index = adata_all.obs['barcode2']
-assignment = pd.read_csv('/Users/raycheng/Dropbox (CahanLab)/BMSC_identity/Data/Sequencing/BMSC_MM_OS_20220909/OS_tag_assignment_112421.txt', sep = '\t', header = 0)
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Differentiation/OS_tag_assignment_112421.txt", "OS_tag_assignment_112421.txt")
+assignment = pd.read_csv('OS_tag_assignment_112421.txt', sep = '\t', header = 0)
 assignment.index = assignment.index.astype(str) + '-1'
 adata_all.obs['multitag'] = assignment['multitag']
 sc.pl.umap(adata_all, color=['multitag'])
 
 sc.pl.umap(adata_all, color=['Ptprc', 'Cdh5'])
-
-
 sc.pl.umap(adata_all, color=['Sox6', 'Kit', 'Myh11', 'Cxcl12', 'Col1a1', 'Spp1'])
 
 # Macrophage markers
 sc.pl.umap(adata_all, color=['Itgam', 'Cd14', 'Cd68'])
-
 
 sc.tl.rank_genes_groups(adata_all, 'leiden', n_genes=50, method='t-test', use_raw=False)
 pd.DataFrame(adata_all.uns['rank_genes_groups']['names']).head(20)
@@ -179,13 +163,11 @@ pd.DataFrame(adata_all.uns['rank_genes_groups']['names']).head(20)
 
 
 #assignment
-assignment = pd.read_csv('/Users/raycheng/Dropbox (CahanLab)/BMSC_identity/Data/Sequencing/BMSC_MM_OS_20220909/OS_tag_assignment_112421.txt', sep = '\t', header = 0)
+assignment = pd.read_csv('OS_tag_assignment_112421.txt', sep = '\t', header = 0)
 assignment.index = assignment.index.astype(str) + '-1'
 adata_all.obs['multitag'] = assignment['multitag']
 
 sc.pl.umap(adata_all, color=['multitag'])
-
-
 
 
 # Save the File
