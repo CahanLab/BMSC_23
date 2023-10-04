@@ -1,5 +1,5 @@
 # Please download All_day_Signac_all_20230330.RDS from the link below
-
+"s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Multipotency/All_day_Signac_all_20230330.RDS"
 
 library(devtools)
 #devtools::install_github("pcahan1/stemfinder/stemFinder", ref="main", auth_token = "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")
