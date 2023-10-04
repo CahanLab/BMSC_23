@@ -6,18 +6,17 @@ import scanpy as sc
 import episcanpy.api as epi
 
 # Import the file
-adata = sc.read_10x_mtx('BMSC_MM_AD_20221014/AD_1014_ARC/outs/filtered_feature_bc_matrix', gex_only = False)
+# Please download the GSE234540_BMSC_AD data from GEO before start
+adata = sc.read_10x_mtx('filtered_feature_bc_matrix', gex_only = False)
 gex_rows = list(map(lambda x: x == 'Gene Expression', adata.var['feature_types']))
 atac_rows = list(map(lambda x: x == 'Peaks', adata.var['feature_types']))
 adata_gem = adata[:, gex_rows].copy()
 adata_atac = adata[:, atac_rows].copy()
 
-# AnnData object with n_obs × n_vars = 8452 × 253966
+# AnnData object with n_obs × n_vars = 6376 × 212768
 
 #Make variables unique
 adata_gem.var_names_make_unique()
-
-# AnnData object with n_obs × n_vars = 8452 × 32285
 
 #Mito_genes and Ribo_genes filter
 sc.pp.filter_genes(adata_gem, min_cells=3)
@@ -32,14 +31,11 @@ adata_gem.obs['n_counts'] = adata_gem.X.sum(axis=1)
 
 sc.pl.violin(adata_gem, ['n_genes', 'n_counts'], jitter=0.4, multi_panel=True)
 
-
 sc.pl.violin(adata_gem, ['percent_mito', 'percent_ribo'], jitter=0.4, multi_panel=True)
-
 
 # Filter out low quality cells
 adata_gem= adata_gem[adata_gem.obs['n_counts'] < 40000, :]
 # adata_gem= adata_gem[adata_gem.obs['percent_mito'] < 0.9, :]
-
 # View of AnnData object with n_obs × n_vars = 3498 × 14441
 
 # Remove mitochondria genes and ribosomal genes
@@ -79,7 +75,8 @@ adata_all.obsm = adata_gem.obsm
 adata_all.obs= adata_gem.obs
 sc.pl.umap(adata_all, color=['leiden'])
 
-assignment = pd.read_csv('/Users/raycheng/Dropbox (CahanLab)/BMSC_identity/Data/Sequencing/BMSC_MM_AD_20221014/tag_assignment_manual_021723.txt', sep = '\t', header = 0)
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Differentiation/tag_assignment_final_021723.txt", "tag_assignment_final_021723.txt")
+assignment = pd.read_csv('tag_assignment_final_021723.txt', sep = '\t', header = 0)
 assignment.index = assignment.index.astype(str) + '-1'
 adata_all.obs['multitag'] = assignment['multitag']
 
@@ -89,7 +86,6 @@ sc.pl.umap(adata_all, color=['multitag'])
 sc.pl.umap(adata_all, color=['Itgam', 'Cd14', 'Cd68'])
 
 sc.pl.umap(adata_all, color=['Ptprc'])
-
 
 sc.tl.rank_genes_groups(adata_all, 'leiden', n_genes=50, method='t-test', use_raw=False)
 pd.DataFrame(adata_all.uns['rank_genes_groups']['names']).head(20)
@@ -158,15 +154,12 @@ adata_all.obsm = adata_gem.obsm
 adata_all.obs= adata_gem.obs
 sc.pl.umap(adata_all, color=['leiden'])
 
-
 sc.tl.rank_genes_groups(adata_all, 'leiden', n_genes=50, method='t-test_overestim_var', use_raw=False)
 pd.DataFrame(adata_all.uns['rank_genes_groups']['names']).head(20)
-
 
 # Save the File
 adata_gem.write_loom('AD_pre_clustered_GEX_cleaned_022423.loom', write_obsm_varm=True)
 adata_all.write_loom('AD_clustered_GEX_cleaned_022423.loom', write_obsm_varm=True)
-
 
 # Further enrichment - removing enothelial cells
 a= adata_all[adata_all.obs['leiden'].isin(['0', '1', '2', '3'])].obs.index
@@ -218,8 +211,6 @@ adata_gem= adata_gem[:, adata_gem.var['highly_variable']]
 sc.tl.pca(adata_gem,use_highly_variable=True, n_comps=60, svd_solver='arpack')
 sc.pl.pca_variance_ratio(adata_gem, 60, log=True)
 
-
-
 adata_pre = adata_gem.copy()
 
 adata_gem= adata_pre.copy()
@@ -236,7 +227,7 @@ sc.tl.rank_genes_groups(adata_all, 'leiden', n_genes=50, method='t-test_overesti
 pd.DataFrame(adata_all.uns['rank_genes_groups']['names']).head(20)
 
 #assignment
-assignment = pd.read_csv('/Users/raycheng/Dropbox (CahanLab)/BMSC_identity/Data/Sequencing/BMSC_MM_AD_20221014/tag_assignment_manual_021723.txt', sep = '\t', header = 0)
+assignment = pd.read_csv('tag_assignment_manual_021723.txt', sep = '\t', header = 0)
 assignment.index = assignment.index.astype(str) + '-1'
 adata_all.obs['multitag'] = assignment['multitag']
 
@@ -252,7 +243,8 @@ adata_atac = adata_atac[adata_all.obs_names, :]
 
 # View of AnnData object with n_obs × n_vars = 2728 × 180483
 # Add annotation
-ann = pd.read_csv("/Users/raycheng/Dropbox (CahanLab)/BMSC_identity/Data/Sequencing/BMSC_MM_AD_20221014/AD_1014_ARC/outs/atac_peak_annotation.tsv", sep='\t', header = 0)
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Differentiation/GSE234540_BMSC_AD_atac_peak_annotation.tsv", "atac_peak_annotation.tsv")
+ann = pd.read_csv("atac_peak_annotation.tsv", sep='\t', header = 0)
 
 adata_atac.var_names_make_unique()
 
@@ -328,12 +320,8 @@ nb_feature_selected = 100000
 epi.pl.variability_features(adata_atac,log=None,
                      min_score=min_score_value, nb_features=nb_feature_selected)
 
-
-
 epi.pl.variability_features(adata_atac,log='log10',
                      min_score=min_score_value, nb_features=nb_feature_selected)
-
-
 
 adata_atac.raw = adata_atac
 
@@ -344,10 +332,7 @@ adata_atac = epi.pp.select_var_feature(adata_atac,
 
 epi.pl.violin(adata_atac, ['nb_features'])
 
-
 epi.pl.violin(adata_atac, ['log_nb_features'])
-
-
 
 # Normalization
 adata_atac_raw = adata_atac.copy()
@@ -361,12 +346,8 @@ adata_atac.layers['binary'] = adata_atac.X.copy()
 epi.tl.leiden(adata_atac, resolution = 0.4)
 epi.pl.umap(adata_atac, color=['leiden'], wspace=0.4)
 
-
-
 adata_atac.obs['GEX'] = adata_all.obs['leiden']
 epi.pl.umap(adata_atac, color=['GEX'], wspace=0.4)
-
-
 
 adata_atac_all = adata_atac_raw.copy()
 adata_atac_all.obsm = adata_atac.obsm
@@ -375,7 +356,6 @@ epi.pl.umap(adata_atac_all, color=['leiden'])
 
 adata_all.obs['ATAC'] = adata_atac.obs['leiden']
 sc.pl.umap(adata_all, color = 'ATAC')
-
 
 epi.tl.rank_features(adata_atac_all, 'leiden', omic='ATAC', use_raw=False)
 epi.pl.rank_feat_groups(adata_atac_all, feature_symbols='gene')
