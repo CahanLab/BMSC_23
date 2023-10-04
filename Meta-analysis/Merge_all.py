@@ -210,10 +210,11 @@ sc.pp.log1p(adata8)
 
 
 # Sivaraj
-MSC1 = sc.read("/Users/raycheng/Dropbox (CahanLab)/BMSC_Meta/Data/Sivaraj_BMSC_Cell_Reports/GSE156636/GSM4735393/outs/velocyto/possorted_genome_bam_3QATU.loom", cache=True)
-MSC2 = sc.read("/Users/raycheng/Dropbox (CahanLab)/BMSC_Meta/Data/Sivaraj_BMSC_Cell_Reports/GSE156636/GSM4735394/outs/velocyto/possorted_genome_bam_FCR1O.loom", cache=True)
-MSC3 = sc.read("/Users/raycheng/Dropbox (CahanLab)/BMSC_Meta/Data/Sivaraj_BMSC_Cell_Reports/GSE156636/GSM4735395/outs/velocyto/possorted_genome_bam_B18BA.loom", cache=True)
-MSC4 = sc.read("/Users/raycheng/Dropbox (CahanLab)/BMSC_Meta/Data/Sivaraj_BMSC_Cell_Reports/GSE156636/GSM4735396/outs/velocyto/possorted_genome_bam_FPPRE.loom", cache=True)
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/Meta-analysis/Sivaraj_BMSC_clustered_20210818-3.loom", "Sivaraj_BMSC_clustered_20210818-3.loom")
+MSC1 = sc.read("possorted_genome_bam_3QATU.loom", cache=True)
+MSC2 = sc.read("possorted_genome_bam_FCR1O.loom", cache=True)
+MSC3 = sc.read("possorted_genome_bam_B18BA.loom", cache=True)
+MSC4 = sc.read("possorted_genome_bam_FPPRE.loom", cache=True)
 
 MSC1.var_names_make_unique()
 MSC2.var_names_make_unique()
@@ -223,7 +224,7 @@ MSC4.var_names_make_unique()
 adata9= MSC1.concatenate([MSC2, MSC3, MSC4])
 adata9.var_names_make_unique()
 
-adata_all9 = sc.read("/Users/raycheng/Dropbox (CahanLab)/BMSC_Meta/Data/Sivaraj_BMSC_Cell_Reports/Sivaraj_BMSC_clustered_20210818-3.loom", cache=True)
+adata_all9 = sc.read("Sivaraj_BMSC_clustered_20210818-3.loom", cache=True)
 
 i= adata_all9.obs.index
 adata9= adata9[adata9.obs.index.isin(i)]
@@ -244,10 +245,9 @@ sc.pp.normalize_per_cell(adata9, counts_per_cell_after=1e4)
 sc.pp.log1p(adata9)
 
 # Wolock
-
-adata10=  sc.read("/Users/raycheng/Dropbox (CahanLab)/BMSC_Meta/Data/Wolock_CR_2019/Alignment/Wolock_final/Dropest/velocyto/Wolock_MSC_QCTZ0.loom", cache=True)
-
-adata_all10 = sc.read("/Users/raycheng/Dropbox (CahanLab)/BMSC_Meta/Data/Wolock_CR_2019/Wolock_BMSC_MSC_clustered.loom", cache=True)
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/Meta-analysis/Wolock_BMSC_MSC_clustered.loom", "Wolock_BMSC_MSC_clustered.loom")
+adata10=  sc.read("Wolock_MSC_QCTZ0.loom", cache=True)
+adata_all10 = sc.read("Wolock_BMSC_MSC_clustered.loom", cache=True)
 
 j= adata_all10.obs.index
 adata10= adata10[adata10.obs.index.isin(j)]
@@ -282,8 +282,6 @@ adata = adata1.concatenate([adata3, adata4, adata5, adata6, adata7, adata8, adat
 sc.tl.pca(adata,use_highly_variable=False, n_comps=60, svd_solver='arpack')
 sc.pl.pca_variance_ratio(adata, 60, log=True)
 
-
-
 adata_pre = adata.copy()
 adata= adata_pre.copy()
 sc.pp.neighbors(adata, n_neighbors=300,n_pcs=50)
@@ -291,8 +289,6 @@ sc.tl.umap(adata)
 sc.pl.umap(adata, color = 'Cell Type')
 sc.pl.umap(adata, color = 'study')
 sc.pl.umap(adata, color = 'tissue')
-
-
 
 #Overlap all the genes
 adata1_raw= BMSC_1.concatenate([BMSC_2, BMSC_3, BMSC_4])
@@ -343,7 +339,6 @@ sc.pp.neighbors(test, n_neighbors=100,n_pcs=25)
 sc.tl.leiden(test, resolution = 0.1)
 sc.pl.umap(adata_all, color = ['leiden'])
 
-
 # Batch corrected embeding
 import scanpy.external as sce
 sce.pp.harmony_integrate(adata_all, 'batch')
@@ -351,15 +346,14 @@ sc.pp.neighbors(adata_all, use_rep="X_pca_harmony", n_neighbors=300,n_pcs=40)
 sc.tl.umap(adata_all)
 sc.pl.umap(adata_all, color = ['leiden5', 'type1', 'tissue'])
 
-
 sc.tl.leiden(adata_all, key_added="clusters", resolution = 0.5)
 sc.pl.umap(adata_all, color = ['clusters', 'tissue', 'study'])
 
-BMSC1 CAR
-BMSC2 OSP
-BMSC3 CH
-BMSC4 FIB
-BMSC5 SMC
+#BMSC1 CAR
+#BMSC2 OSP
+#BMSC3 CH
+#BMSC4 FIB
+#BMSC5 SMC
 
 # Identify subclusters
 adata_marrow = adata_all[adata_all.obs['tissue'] == 'marrow']
@@ -372,7 +366,6 @@ sc.pl.umap(adata_marrow , color = ['leiden1'], palette = 'Set2')
 sc.tl.rank_genes_groups(adata_marrow, 'leiden1', n_genes=adata_marrow.shape[1], use_raw=False)
 sc.pl.rank_genes_groups_dotplot(adata_marrow, values_to_plot='logfoldchanges', min_logfoldchange=1.5, vmax=7, vmin=-7, cmap='bwr', dendrogram = False)
 
-
 # Rename the clusters
 adata_all.obs['type'] = ''
 conditions = [(adata_all.obs['clusters'] == '0'), (adata_all.obs['clusters'] == '3'), (adata_all.obs['clusters'] == '2'), (adata_all.obs['clusters'] == '1'), (adata_all.obs['clusters'] == '4')]
@@ -383,7 +376,6 @@ adata_marrow.obs['type1'] = ''
 conditions = [(adata_marrow.obs['leiden1'] == 'BMSC1'), (adata_marrow.obs['leiden1'] == 'BMSC2,0'), (adata_marrow.obs['leiden1'] == 'BMSC2,1'), (adata_marrow.obs['leiden1'] == 'BMSC2,2'), (adata_marrow.obs['leiden1'] == 'BMSC3'), (adata_marrow.obs['leiden1'] == 'BMSC4'), (adata_marrow.obs['leiden1'] == 'BMSC5')]
 choices = ['BMSC1', 'BMSC2', 'BMSC3', 'BMSC4', 'BMSC5', 'BMSC6', 'BMSC7']
 adata_marrow.obs['type1'] = np.select(conditions, choices, default='0')
-
 
 # differential gene heatmap
 non_mito_genes_list = [name for name in adata_all.var_names if not name.startswith('mt-')]
