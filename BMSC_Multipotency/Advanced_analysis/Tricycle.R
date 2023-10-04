@@ -1,3 +1,6 @@
+# Please download All_day_Signac_all_20230330.RDS from the link below
+"s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Multipotency/All_day_Signac_all_20230330.RDS"
+
 library(Seurat)
 library(tricycle)
 library(SingleCellExperiment)
