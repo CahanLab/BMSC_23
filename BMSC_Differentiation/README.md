@@ -8,7 +8,7 @@ In this step, each individual dataset was analyzed separately. The analysis serv
 The scripts, AD+OS+CH_ARC.py and All_Days_Signac_Seurat.R, encompass the entire codebase essential for merging individual datasets and generating conclusive clustering results. In addition, the AD+OS+CH_Signac_Seurat.R script provides a detailed pipeline explaining how to conduct Motif analysis and assess RNA levels based on ATAC.
 
 ### Advanced Analysis (Figure 2D, 2E, 3)
-This section also includes the code for performing advanced analyses, which encompass scVelo, StemFinder, Tricycle, and GRN. These analyses contribute to a comprehensive exploration of the data.
+This section also includes the code for performing advanced analyses, which encompass scVelo and GRN. These analyses contribute to a comprehensive exploration of the data.
 
 
 
