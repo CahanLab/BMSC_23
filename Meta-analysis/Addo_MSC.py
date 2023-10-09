@@ -11,13 +11,17 @@ download.file("s3://cahanlab/ray.cheng/BMSC_2023/Meta-analysis/regev_lab_cell_cy
 adata = scv.read("Addo_ZYBAF.loom", cache=True)
 adata
 
+# Ensure unique variable names
 adata.var_names_make_unique()
+
+# Display information about AnnData object
 adata
 
 # AnnData object with n_obs × n_vars = 5117 × 31053 
 #   var: 'Accession', 'Chromosome', 'End', 'Start', 'Strand'
 #   layers: 'matrix', 'ambiguous', 'spliced', 'unspliced'
 
+# Function to filter genes and cells
 def filter_10x(mdata, topX = 95, mCells=3, mGenes=200):
     sc.pp.filter_genes(mdata, min_cells=mCells)
     sc.pp.filter_cells(mdata, min_genes=mGenes)
@@ -38,11 +42,14 @@ def percent_cal(MSC):
 	return MSC
 
 adata = percent_cal(adata)
+
+# Violin plot for n_counts
 sc.pl.violin(adata , ['n_counts'], jitter=0.4, multi_panel=True)
 
-mdata.obs['n_counts2'] = np.sum(mdata.X, axis=1).A1
+# Violin plot for various metrics
 sc.pl.violin(adata , ['n_genes', 'n_counts', 'percent_mito', 'percent_ribo'], jitter=0.4, multi_panel=True)
 
+# Function to filter cells based on specified thresholds
 def filter_prep(adata, ngenes, percentmito, percentribo):
 	adata= adata[adata.obs['n_genes'] < ngenes, :]
 	adata= adata[adata.obs['percent_mito'] < percentmito, :]
@@ -51,17 +58,26 @@ def filter_prep(adata, ngenes, percentmito, percentribo):
 	sc.pp.log1p(adata)
 	return (adata)
 
+# Apply filtering
 adata= filter_prep(adata, 3000, 0.15, 0.4)
-adata
-AnnData object with n_obs × n_vars = 1981 × 13414 
-    obs: 'n_genes', 'n_counts', 'percent_mito', 'percent_ribo'
-    var: 'Accession', 'Chromosome', 'End', 'Start', 'Strand', 'n_cells'
-    layers: 'matrix', 'ambiguous', 'spliced', 'unspliced'
 
+# Display filtered AnnData object
+adata
+#AnnData object with n_obs × n_vars = 1981 × 13414 
+#    obs: 'n_genes', 'n_counts', 'percent_mito', 'percent_ribo'
+#    var: 'Accession', 'Chromosome', 'End', 'Start', 'Strand', 'n_cells'
+#    layers: 'matrix', 'ambiguous', 'spliced', 'unspliced'
+
+# Save a copy of the raw data
 adata_raw = adata.copy()
+
+# Identify highly variable genes
 sc.pp.highly_variable_genes(adata, min_mean=0.0125, max_mean=3, min_disp=0.5)
+
+# Visualize highly variable genes
 sc.pl.highly_variable_genes(adata)
 
+# Function to apply variable gene filter
 def variable_filter(adata):
 	adata= adata[:, adata.var['highly_variable']]
 	sc.pp.regress_out(adata, ['n_counts', 'percent_mito'])
@@ -112,11 +128,13 @@ def oricycle_plot(adata, species):
 	else:
 		print("please specify the species to be mouse or human")
 
+# Function to regress out cell cycle scores
 def cycle_regress(adata):
 	sc.pp.regress_out(adata, ['S_score', 'G2M_score'])
 	sc.pp.scale(adata)
 	return(adata)
 
+# Apply variable gene filter
 adata = variable_filter(adata)
 adata = cycle_score(adata, "mouse")
 oricycle_plot(adata, "mouse")
@@ -128,12 +146,15 @@ oricycle_plot(adata, "mouse")
 sc.tl.pca(adata,use_highly_variable=True, n_comps=60, svd_solver='arpack')
 sc.pl.pca_variance_ratio(adata, 60, log=True)
 
+# Save a copy before further processing
 adata_pre = adata.copy()
 
 adata= adata_pre.copy()
 sc.pp.neighbors(adata, n_neighbors=100,n_pcs=20)
 sc.tl.louvain(adata, resolution = 0.4)
 sc.tl.umap(adata)
+
+# Visualize Louvain clusters on UMAP
 sc.pl.umap(adata, color=['louvain'])
 
 adata_all= adata_raw.copy()
