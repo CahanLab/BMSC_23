@@ -199,7 +199,8 @@ genome(annotations) <- "mm10"
 Annotation(adata) <- annotations
 
 # add RNA to ATAC
-lfile <- connect(filename = "/Users/raycheng/Dropbox (CahanLab)/BMSC_identity/Data/Sequencing/BMSC_All_Days/BMSC_All_day_clustered_bc_041923.loom", skip.validate = TRUE)
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Multipotency/BMSC_All_day_clustered_bc_041923.loom", "BMSC_All_day_clustered_bc_041923.loom")
+lfile <- connect(filename = "BMSC_All_day_clustered_bc_041923.loom", skip.validate = TRUE)
 geneNames<-lfile[["row_attrs"]][["var_names"]][]
 cellNames<-colnames(adata@assays$ATAC)
 expPark<- t(lfile[["matrix"]][1:length(cellNames),])
@@ -255,7 +256,8 @@ adata<- NormalizeData(object = adata, assay = 'ATAC_RNA', normalization.method =
 
 #Motif analysis
 # Database 2: CIS-BP - a list of complete mouse pfm (better)
-pfm_CISBP_raw <- readRDS("/Users/raycheng/Dropbox (CahanLab)/BMSC_identity/Data/Sequencing/BMSC_All_Days/GRN/cisBP_mouse_pfms_2021.rds")
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Multipotency/cisBP_mouse_pfms_2021.rds", "cisBP_mouse_pfms_2021.rds")
+pfm_CISBP_raw <- readRDS("cisBP_mouse_pfms_2021.rds")
 
 x <- character()
 for(i in 1:length(pfm_CISBP_raw@listData)){
