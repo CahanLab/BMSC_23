@@ -46,8 +46,12 @@ combined.peaks <- combined.peaks[peakwidths  < 10000 & peakwidths > 20]
 combined.peaks
 
 # load metadata
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Differentiation/AD/AD_metatable.csv", "AD_metatable.csv")
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Differentiation/OS/OS_metatable_20230328.csv", "OS_metatable.csv")
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Differentiation/CH/CH_metatable_20240425.csv", "CH_metatable.csv")
+
 md.500 <- read.table(
-  file = "/Users/raycheng/Dropbox (CahanLab)/BMSC_identity/Data/Sequencing/BMSC_MM_AD_20221014/AD_1014_ARC/AD_metatable.csv",
+  file = "AD_metatable.csv",
   stringsAsFactors = FALSE,
   sep = ",",
   header = TRUE,
@@ -55,28 +59,32 @@ md.500 <- read.table(
 ) # remove the first row
 
 md.1k <- read.table(
-  file = "/Users/raycheng/Dropbox (CahanLab)/BMSC_identity/Data/Sequencing/BMSC_MM_OS_20220909/OS_0909_ARC/OS_metatable_20230328.csv",
+  file = "OS_metatable.csv",
   stringsAsFactors = FALSE,
   sep = ",",
   header = TRUE,
   row.names = 1
 )
 
-md.5k <- read.table(file = "/Users/raycheng/Dropbox (CahanLab)/BMSC_identity/Data/Sequencing/BMSC_MM_CH_20230127/CH_0127_ARC/CH_metatable_20240425.csv", stringsAsFactors = FALSE, sep = ",", header = TRUE, row.names = 1)
+md.5k <- read.table(file = "CH_metatable.csv", stringsAsFactors = FALSE, sep = ",", header = TRUE, row.names = 1)
 
 
 # create fragment objects
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Differentiation/AD/atac_fragments.tsv.gz", "AD_atac_fragments.tsv.gz")
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Differentiation/OS/atac_fragments.tsv.gz", "OS_atac_fragments.tsv.gz")
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Differentiation/CH/atac_fragments.tsv.gz", "CH_atac_fragments.tsv.gz")
+
 frags.500 <- CreateFragmentObject(
-  path = "/Users/raycheng/Dropbox (CahanLab)/BMSC_identity/Data/Sequencing/BMSC_MM_AD_20221014/AD_1014_ARC/outs/atac_fragments.tsv.gz",
+  path = "AD_atac_fragments.tsv.gz",
   cells = rownames(md.500)
 )
 
 frags.1k <- CreateFragmentObject(
-  path = "/Users/raycheng/Dropbox (CahanLab)/BMSC_identity/Data/Sequencing/BMSC_MM_OS_20220909/OS_0909_ARC/outs/atac_fragments.tsv.gz",
+  path = "OS_atac_fragments.tsv.gz",
   cells = rownames(md.1k)
 )
 
-frags.5k <- CreateFragmentObject(path = "/Users/raycheng/Dropbox (CahanLab)/BMSC_identity/Data/Sequencing/BMSC_MM_CH_20230127/CH_0127_ARC/outs/atac_fragments.tsv.gz", cells = rownames(md.5k))
+frags.5k <- CreateFragmentObject(path = "CH_atac_fragments.tsv.gz", cells = rownames(md.5k))
 
 #Quantify peaks in each dataset
 pbmc500.counts <- FeatureMatrix(
