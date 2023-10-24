@@ -21,16 +21,16 @@ library(magrittr)
 #options(future.globals.maxSize = 16000 * 1024^2)
  
 # Prepare bed files
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Differentiation/AD/atac_peaks.bed", "AD_atac_peaks.bed")
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Differentiation/OS/atac_peaks.bed", "OS_atac_peaks.bed")
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Differentiation/CH/atac_peaks.bed", "CH_atac_peaks.bed")
+
 #AD
-peaks.500 <- read.table(
-  file = "/Users/raycheng/Dropbox (CahanLab)/BMSC_identity/Data/Sequencing/BMSC_MM_AD_20221014/AD_1014_ARC/outs/atac_peaks.bed",
-  col.names = c("chr", "start", "end"))
+peaks.500 <- read.table(file = "AD_atac_peaks.bed", col.names = c("chr", "start", "end"))
 #OS
-peaks.1k <- read.table(
-  file = "/Users/raycheng/Dropbox (CahanLab)/BMSC_identity/Data/Sequencing/BMSC_MM_OS_20220909/OS_0909_ARC/outs/atac_peaks.bed",
-  col.names = c("chr", "start", "end"))
+peaks.1k <- read.table(file = "OS_atac_peaks.bed", col.names = c("chr", "start", "end"))
 #CH
-peaks.5k <- read.table(file = '/Users/raycheng/Dropbox (CahanLab)/BMSC_identity/Data/Sequencing/BMSC_MM_CH_20230127/CH_0127_ARC/outs/atac_peaks.bed', col.names = c("chr", "start", "end"))
+peaks.5k <- read.table(file = 'CH_atac_peaks.bed', col.names = c("chr", "start", "end"))
 
 # convert to genomic ranges
 gr.500 <- makeGRangesFromDataFrame(peaks.500)
