@@ -36,25 +36,27 @@ library(plotly)
 #options(future.globals.maxSize = 16000 * 1024^2)
 
 # Prepare bed files
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Multipotency/Day0_0824_ARC/atac_peaks.bed", "Day0_atac_peaks.bed")
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Multipotency/Day0_1007_ARC/atac_peaks.bed", "Day0_re_atac_peaks.bed")
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Multipotency/Day1_0919_ARC/atac_peaks.bed", "Day1_atac_peaks.bed")
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Multipotency/Day3_0522_ARC/atac_peaks.bed", "Day3_atac_peaks.bed")
+
 #Day0
 peaks.500 <- read.table(
-  file = "/Users/raycheng/Dropbox (CahanLab)/BMSC_identity/Data/Sequencing/BMSC_day0_20220824/Day0_0824_ARC/outs/atac_peaks.bed", col.names = c("chr", "start", "end")
+  file = "Day0_atac_peaks.bed", col.names = c("chr", "start", "end")
 )
-
 #Day0re
 peaks.50 <- read.table(
-  file = "/Users/raycheng/Dropbox (CahanLab)/BMSC_identity/Data/Sequencing/BMSC_day0_20221007/Day0_1007_ARC/outs/atac_peaks.bed", col.names = c("chr", "start", "end")
+  file = "Day0_re_atac_peaks.bed", col.names = c("chr", "start", "end")
 )
-
 #Day1
 peaks.1k <- read.table(
-  file = "/Users/raycheng/Dropbox (CahanLab)/BMSC_identity/Data/Sequencing/BMSC_day1_20220919/Day1_0919_ARC/outs/atac_peaks.bed", col.names = c("chr", "start", "end")
+  file = "Day1_atac_peaks.bed", col.names = c("chr", "start", "end")
 )
 #Day3
 peaks.5k <- read.table(
-  file = "/Users/raycheng/Dropbox (CahanLab)/BMSC_identity/Data/Sequencing/BMSC_MM_2021/Novaseq_20210522/BMSCMM_20210618/outs/atac_peaks.bed", col.names = c("chr", "start", "end")
+  file = "Day3_atac_peaks.bed", col.names = c("chr", "start", "end")
 )
-
 # convert to genomic ranges
 gr.500 <- makeGRangesFromDataFrame(peaks.500)
 gr.50 <- makeGRangesFromDataFrame(peaks.50)
@@ -70,41 +72,51 @@ combined.peaks <- combined.peaks[peakwidths  < 10000 & peakwidths > 20]
 combined.peaks
 
 # load metadata
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Multipotency/Day0_0824_ARC/Day0_metatable_20230308.csv", "Day0_metatable_20230308.csv")
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Multipotency/Day0_1007_ARC/Day0re_metatable_20230308.csv", "Day0re_metatable_20230308.csv")
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Multipotency/Day1_0919_ARC/Day1_metatable_20230308.csv", "Day1_metatable_20230308.csv")
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Multipotency/Day3_0522_ARC/Day3_metatable_20230308.csv", "Day3_metatable_20230308.csv")
+
 md.500 <- read.table(
-  file = "/Users/raycheng/Dropbox (CahanLab)/BMSC_identity/Data/Sequencing/BMSC_All_Days/Day0_metatable_20230308.csv",
+  file = "Day0_metatable_20230308.csv",
   stringsAsFactors = FALSE, sep = ",", header = TRUE, row.names = 1) # remove the first row
 
 md.50 <- read.table(
-  file = "/Users/raycheng/Dropbox (CahanLab)/BMSC_identity/Data/Sequencing/BMSC_All_Days/Day0re_metatable_20230308.csv",
+  file = "Day0re_metatable_20230308.csv",
   stringsAsFactors = FALSE, sep = ",", header = TRUE, row.names = 1) # remove the first row
 
 
 md.1k <- read.table(
-  file = "/Users/raycheng/Dropbox (CahanLab)/BMSC_identity/Data/Sequencing/BMSC_All_Days/Day1_metatable_20230308.csv",
+  file = "Day1_metatable_20230308.csv",
   stringsAsFactors = FALSE, sep = ",", header = TRUE, row.names = 1)
 
 md.5k <- read.table(
-  file = "/Users/raycheng/Dropbox (CahanLab)/BMSC_identity/Data/Sequencing/BMSC_All_Days/Day3_metatable_20230308.csv",
+  file = "Day3_metatable_20230308.csv",
   stringsAsFactors = FALSE, sep = ",", header = TRUE, row.names = 1)
 
 # create fragment objects
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Multipotency/Day0_0824_ARC/atac_fragments.tsv.gz", "Day0_atac_fragments.tsv.gz")
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Multipotency/Day0_1007_ARC/atac_fragments.tsv.gz", "Day0re_atac_fragments.tsv.gz")
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Multipotency/Day1_0919_ARC/atac_fragments.tsv.gz", "Day1_atac_fragments.tsv.gz")
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Multipotency/Day3_0522_ARC/atac_fragments.tsv.gz", "Day3_atac_fragments.tsv.gz")
+
 frags.500 <- CreateFragmentObject(
-  path = "/Users/raycheng/Dropbox (CahanLab)/BMSC_identity/Data/Sequencing/BMSC_day0_20220824/Day0_0824_ARC/outs/atac_fragments.tsv.gz",
+  path = "Day0_atac_fragments.tsv.gz",
   cells = rownames(md.500)
 )
 
 frags.50 <- CreateFragmentObject(
-  path = "/Users/raycheng/Dropbox (CahanLab)/BMSC_identity/Data/Sequencing/BMSC_day0_20221007/Day0_1007_ARC/outs/atac_fragments.tsv.gz",
+  path = "Day0re_atac_fragments.tsv.gz",
   cells = rownames(md.50)
 )
 
 frags.1k <- CreateFragmentObject(
-  path = "/Users/raycheng/Dropbox (CahanLab)/BMSC_identity/Data/Sequencing/BMSC_day1_20220919/Day1_0919_ARC/outs/atac_fragments.tsv.gz",
+  path = "Day1_atac_fragments.tsv.gz",
   cells = rownames(md.1k)
 )
 
 frags.5k <- CreateFragmentObject(
-  path = "/Users/raycheng/Dropbox (CahanLab)/BMSC_identity/Data/Sequencing/BMSC_MM_2021/Novaseq_20210522/BMSCMM_20210618/outs/atac_fragments.tsv.gz",
+  path = "Day3_atac_fragments.tsv.gz",
   cells = rownames(md.5k)
 )
 
