@@ -229,10 +229,7 @@ adata_all.obs['count_genes'] = adata_all.obs['n_counts']/adata_all.obs['n_genes'
 
 
 Save the File
-adata.write_loom('BMSC_AD_OS_CH_pre_clustered_20230425.loom', write_obsm_varm=True)
-adata_all.write_loom('BMSC_AD_OS_CH_clustered_bc_20230425.loom', write_obsm_varm=True)
+adata.write_loom('BMSC_AD_OS_CH_pre_clustered_20231204.loom', write_obsm_varm=True)
+adata_all.write_loom('BMSC_AD_OS_CH_clustered_bc_20231204.loom', write_obsm_varm=True)
 
-adata_all.obs['old_names']= adata_all.obs.index.copy()
-adata_all.obs_names= adata_all.obs.index.str[:-2]
-adata_all.obs_names.to_frame().to_csv('BMSC_AD_OS_filtered_cells_20230328.txt', header=False, index=False)
 
