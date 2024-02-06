@@ -3,7 +3,7 @@
 import scvelo as scv
 import scanpy as sc
 
-download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Differentiation/BMSC_AD_OS_CH_clustered_bc_20230425.loom", "BMSC_AD_OS_CH_clustered_bc_20230425.loom")
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Differentiation/BMSC_AD_OS_CH_clustered_bc_20231204.loom", "BMSC_AD_OS_CH_clustered_bc_20230425.loom")
 adata_all = sc.read("BMSC_AD_OS_CH_clustered_bc_20230425.loom")
 adata_all.obs_names = adata_all.obs['obs_names']
 adata_all.var_names = adata_all.var['var_names']
