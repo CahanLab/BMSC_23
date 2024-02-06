@@ -33,7 +33,7 @@ loadLoomExpDiffMap<-function# load a loom object containing expression data
 
 #Load data
 mmTFs<-utils_loadObject("/Users/raycheng/Dropbox (CahanLab)/BMSC_Meta/Data/Reference/mmTFs_123019.rda")
-list12<-loadLoomExpDiffMap("BMSC_AD_OS_CH_clustered_bc_20230425.loom", xname='type')
+list12<-loadLoomExpDiffMap("BMSC_AD_OS_CH_clustered_bc_20231204.loom", xname='type')
 
 expDat<-list12[['expDat']]
 sampTab<-list12[['sampTab']] 
