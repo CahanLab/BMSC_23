@@ -46,9 +46,9 @@ combined.peaks <- combined.peaks[peakwidths  < 10000 & peakwidths > 20]
 combined.peaks
 
 # load metadata
-download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Differentiation/AD/AD_metatable.csv", "AD_metatable.csv")
-download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Differentiation/OS/OS_metatable_20230328.csv", "OS_metatable.csv")
-download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Differentiation/CH/CH_metatable_20240425.csv", "CH_metatable.csv")
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Differentiation/AD/AD_metatable_20231202.csv", "AD_metatable.csv")
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Differentiation/OS/OS_metatable_20231202.csv", "OS_metatable.csv")
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Differentiation/CH/CH_metatable_20231202.csv", "CH_metatable.csv")
 
 md.500 <- read.table(
   file = "AD_metatable.csv",
@@ -151,8 +151,8 @@ genome(annotations) <- "mm10"
 Annotation(adata) <- annotations
 
 # add RNA to ATAC
-download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Differentiation/BMSC_AD_OS_CH_clustered_bc_20230425.loom", "BMSC_AD_OS_CH_clustered_bc_20230425.loom")
-lfile <- connect(filename = "BMSC_AD_OS_CH_clustered_bc_20230425.loom", skip.validate = TRUE)
+download.file("s3://cahanlab/ray.cheng/BMSC_2023/BMSC_Differentiation/BMSC_AD_OS_CH_clustered_bc_20231204.loom", "BMSC_AD_OS_CH_clustered_bc_20231204.loom")
+lfile <- connect(filename = "BMSC_AD_OS_CH_clustered_bc_20231204.loom", skip.validate = TRUE)
 geneNames<-lfile[["row_attrs"]][["var_names"]][]
 cellNames<-colnames(adata@assays$ATAC)
 expPark<- t(lfile[["matrix"]][1:length(cellNames),])
@@ -250,4 +250,4 @@ MotifPlot(
   assay = 'ATAC')
 
 # Save RDS
-saveRDS(adata, file = "All_diff_Signac_all_20230425.RDS") 
+saveRDS(adata, file = "All_diff_Signac_all_20231204.RDS") 
