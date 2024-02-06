@@ -198,7 +198,6 @@ df.to_csv("Marrow_DE_list_bc_20230425.csv")
 sc.tl.rank_genes_groups(adata_all, 'type', n_genes=adata_ad.shape[1], use_raw=False)
 sc.pl.rank_genes_groups_dotplot(adata_all, n_genes=10, values_to_plot='logfoldchanges', min_logfoldchange=1, vmax=7, vmin=-7, cmap='bwr', dendrogram = False)
 
-
 genes = ['Acta2', 'Actb', 'Ccn2', 'Tagln', 'Inhba', 'Actg1', 'Actg2',  'Ibsp', 'Mmp13', 'Ogn', 'Gpx3', 'Gas6', 'Ptx3', 'Igfbp5', 'Alpl', 'Cxcl12', 'Lpl', 'Tgfbr3', 'Kitl', 'Negr1', 'Vcam1', 'Vcan', 'Lepr',  'Fabp4', 'Adipoq', 'Lpl', 'Cd36', 'Fabp5', 'Adipor2', 'Pparg', 'Ebf1', 'Malat1', 'Zeb2', 'Runx1', 'Tnc', 'Cald1']
 
 a= adata_all[adata_all.obs['type'].isin(['BMSC1', 'BMSC2', 'BMSC3', 'BMSC4', 'BMSC5'])].obs.index
@@ -207,14 +206,11 @@ adata_ad = adata_all[adata_all.obs.index.isin(a)]
 sc.tl.rank_genes_groups(adata_ad, 'type', n_genes=adata_ad.shape[1], use_raw=False)
 sc.pl.rank_genes_groups_dotplot(adata_ad, var_names = genes, values_to_plot='logfoldchanges', min_logfoldchange=1.5, vmax=5, vmin=-5, cmap='bwr', dendrogram = False)
 
-
 a= adata_all[adata_all.obs['type'].isin(['BMSC6', 'BMSC7', 'BMSC8'])].obs.index
 adata_os = adata_all[adata_all.obs.index.isin(a)]
 
 sc.tl.rank_genes_groups(adata_os, 'type', n_genes=200, use_raw=False)
 pd.DataFrame(adata_os.uns['rank_genes_groups']['names']).head(40)
-
-
 
 genes = ['Acta2', 'Ccn2', 'S100a6', 'Tagln', 'Tpm2', 'Lgals1', 'Actg1', 'Actg2', 'Actb',  'Col11a1', 'Col12a1',  'Fgfr1', 'Edil3', 'Plcb1', 'Fgfr2', 'Exoc4', 'Fndc3b', 'Runx2', 'Tnc', 'Nfia', 'Runx1', 'Zeb2', 'Lifr', 'Cxcl12', 'Mmp13', 'Kitl', 'Negr1', 'Limch1']
 
@@ -235,7 +231,6 @@ adata_all.obs['count_genes'] = adata_all.obs['n_counts']/adata_all.obs['n_genes'
 Save the File
 adata.write_loom('BMSC_AD_OS_CH_pre_clustered_20230425.loom', write_obsm_varm=True)
 adata_all.write_loom('BMSC_AD_OS_CH_clustered_bc_20230425.loom', write_obsm_varm=True)
-#adata_all.write_h5ad('BMSC_AD_OS_clustered_20230220.h5ad')
 
 adata_all.obs['old_names']= adata_all.obs.index.copy()
 adata_all.obs_names= adata_all.obs.index.str[:-2]
