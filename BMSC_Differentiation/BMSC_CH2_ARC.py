@@ -157,7 +157,7 @@ sc.tl.rank_genes_groups(adata_all, 'leiden', n_genes=200, use_raw=False)
 pd.DataFrame(adata_all.uns['rank_genes_groups']['names']).head(20)
 
 #assignment
-assignment = pd.read_csv('tag_assignment_final_042423.txt', sep = '\t', header = 0)
+assignment = pd.read_csv('tag_assignment_final_040423.txt', sep = '\t', header = 0)
 assignment.index = assignment.index.astype(str) + '-1'
 adata_all.obs['multitag'] = assignment['multitag']
 
