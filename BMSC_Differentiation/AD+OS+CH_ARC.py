@@ -3,7 +3,6 @@ python3
 import numpy as np
 import pandas as pd
 import scanpy as sc
-import episcanpy as epi
 
 # RNA Part:
 # Import Data
