@@ -3,7 +3,6 @@ python3
 import numpy as np
 import pandas as pd
 import scanpy as sc
-import episcanpy.api as epi
 
 # Import the file
 # Please download the GSE234540_BMSC_AD data from GEO before start
