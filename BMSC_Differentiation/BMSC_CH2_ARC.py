@@ -174,9 +174,6 @@ sc.pp.neighbors(adata_diff , n_neighbors=25,n_pcs=25)
 sc.tl.dpt(adata_diff , n_dcs=4, n_branchings=1)
 sc.pl.umap(adata_diff , color = ['multitag', 'dpt_groups', 'dpt_pseudotime'], cmap='OrRd')
 
-adata_diff.obs['dpt_groups_ori'] = adata_diff.obs['dpt_groups']
-adata_diff.obs['dpt_groups'] = adata_all.obs['leiden2']
-
 # Save the File
 adata_gem.write_loom('CH_pre_clustered_GEX_cleaned_042423.loom', write_obsm_varm=True)
 adata_all.write_loom('CH_clustered_GEX_cleaned_042423.loom', write_obsm_varm=True)
