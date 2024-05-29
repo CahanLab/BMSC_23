@@ -148,11 +148,6 @@ sc.tl.leiden(adata_all, resolution = 0.3, restrict_to=('leiden0', ['2']), key_ad
 sc.tl.leiden(adata_all, resolution = 0.3, restrict_to=('leiden1', ['2,0']), key_added='leiden2')
 sc.pl.umap(adata_all, color = ['leiden2', 'multitag', 'lineage'])
 
-
-sc.pl.umap(adata_all, color = ['type'], palette = ['#E97E73', '#CA9734', '#9EAF3C', '#7DC874', '#73C9B0', '#64BEE1', '#7FA5F9', '#CE78F4'])
-sc.pl.umap(adata_all, color = ['multitag'], palette = 'cool')
-sc.pl.umap(adata_all, color = ['lineage'], palette = 'Accent')
-
 # PLot stem finder
 new_meta = pd.read_csv("/Users/raycheng/Dropbox (CahanLab)/BMSC_identity/Data/Sequencing/BMSC_All_Diff/StemFinder/stemFinder_All_Diff_20230330.csv")
 new_meta.index = adata_all.obs.index
@@ -184,19 +179,6 @@ pd.DataFrame(adata_all.uns['rank_genes_groups']['names']).head(40)
 df = pd.DataFrame(adata_all.uns['rank_genes_groups']['names'])
 df.to_csv("AD_OS_CH_DE_list_bc_20230425.csv")
 
-sc.tl.rank_genes_groups(adata_day0, 'leiden0', n_genes=50, use_raw=False)
-pd.DataFrame(adata_day0.uns['rank_genes_groups']['names']).head(40)
-df = pd.DataFrame(adata_day0.uns['rank_genes_groups']['names'])
-df.to_csv("Day0_DE_list_bc_20230425.csv")
-
-sc.tl.rank_genes_groups(adata_marrow, 'type1', n_genes=200, use_raw=False)
-pd.DataFrame(adata_marrow.uns['rank_genes_groups']['names']).head(40)
-df = pd.DataFrame(adata_marrow.uns['rank_genes_groups']['names'])
-df.to_csv("Marrow_DE_list_bc_20230425.csv")
-
-sc.tl.rank_genes_groups(adata_all, 'type', n_genes=adata_ad.shape[1], use_raw=False)
-sc.pl.rank_genes_groups_dotplot(adata_all, n_genes=10, values_to_plot='logfoldchanges', min_logfoldchange=1, vmax=7, vmin=-7, cmap='bwr', dendrogram = False)
-
 genes = ['Acta2', 'Actb', 'Ccn2', 'Tagln', 'Inhba', 'Actg1', 'Actg2',  'Ibsp', 'Mmp13', 'Ogn', 'Gpx3', 'Gas6', 'Ptx3', 'Igfbp5', 'Alpl', 'Cxcl12', 'Lpl', 'Tgfbr3', 'Kitl', 'Negr1', 'Vcam1', 'Vcan', 'Lepr',  'Fabp4', 'Adipoq', 'Lpl', 'Cd36', 'Fabp5', 'Adipor2', 'Pparg', 'Ebf1', 'Malat1', 'Zeb2', 'Runx1', 'Tnc', 'Cald1']
 
 a= adata_all[adata_all.obs['type'].isin(['BMSC1', 'BMSC2', 'BMSC3', 'BMSC4', 'BMSC5'])].obs.index
@@ -226,6 +208,10 @@ sc.pl.rank_genes_groups_dotplot(adata_os, var_names = genes, values_to_plot='log
 adata_all.obs['gene_counts'] = adata_all.obs['n_genes']/adata_all.obs['n_counts']
 adata_all.obs['count_genes'] = adata_all.obs['n_counts']/adata_all.obs['n_genes']
 
+# Plot for publication
+sc.pl.umap(adata_all, color = ['type'], palette = ['#E97E73', '#CA9734', '#9EAF3C', '#7DC874', '#73C9B0', '#64BEE1', '#7FA5F9', '#CE78F4'])
+sc.pl.umap(adata_all, color = ['multitag'], palette = 'cool')
+sc.pl.umap(adata_all, color = ['lineage'], palette = 'Accent')
 
 Save the File
 adata.write_loom('BMSC_AD_OS_CH_pre_clustered_20231204.loom', write_obsm_varm=True)
